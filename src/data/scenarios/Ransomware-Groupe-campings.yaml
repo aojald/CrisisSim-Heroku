@@ -1,0 +1,1062 @@
+id: scenario-1737643067789
+type: Ransomware
+title: "[full][FR] - Ransomware Groupe de 70 campings"
+description: Le Club des Cinq Étoiles SA, un groupe leader dans le secteur du
+  camping avec 70 sites répartis en France, Italie et Espagne, est victime d'une
+  cyberattaque sophistiquée. Un ransomware a chiffré et rendu indisponible le
+  PMS (Property Management System), paralysant la gestion des campings et des
+  réservations. De plus, les attaquants ont exfiltré des données clients
+  sensibles. L'attaquant demande une rançon de 2 millions d'euros en
+  cryptomonnaie, menaçant de publier les données clients si le paiement n'est
+  pas effectué sous 72 heures. La crise débute le 4 mai 2025 à 3h du matin, en
+  pleine saison estivale. Des milliers de clients sont attendus dans les
+  prochains jours, ignorant la situation critique que traverse l'entreprise.
+industry:
+  - Technology
+  - Healthcare
+  - Finance
+  - Retail
+  - Manufacturing
+companySize:
+  - Medium
+  - Small
+  - Large
+severity: Medium
+timeline:
+  - id: d1737643152495
+    text: >-
+      Contexte général : 
+
+      Le Club des Cinq Étoiles SA, un groupe leader dans le secteur du camping
+      avec 70 sites répartis en France, Italie et Espagne, est victime d'une
+      cyberattaque sophistiquée. Un ransomware a chiffré et rendu indisponible
+      le PMS (Property Management System), paralysant la gestion des campings et
+      des réservations. De plus, les attaquants ont exfiltré des données clients
+      sensibles. L'attaquant demande une rançon de 2 millions d'euros en
+      cryptomonnaie, menaçant de publier les données clients si le paiement
+      n'est pas effectué sous 72 heures. La crise débute le 4 mai 2025 à 3h du
+      matin, en pleine saison estivale. Des milliers de clients sont attendus
+      dans les prochains jours, ignorant la situation critique que traverse
+      l'entreprise. I
+
+      Il faut alerter le CEO pour déclencher la cellule de crise. Comment
+      déclenchez-vous la cellule de crise ?
+    roleContext:
+      CEO: Vous recevez un appel urgent du CISO vous informant de la situation
+        critique.
+      CFO: Vous êtes réveillé par un appel du CEO, anticipant déjà l'impact financier
+        potentiel.
+      COO: Alerté, vous pensez aux défis opérationnels imminents pour les 70 campings.
+      CIO: Vous êtes au bureau, travaillant avec l'équipe IT pour comprendre l'étendue
+        de l'attaque.
+      CISO: Vous avez détecté l'attaque et informé le CEO, rassemblant rapidement les
+        informations disponibles.
+      HR Director: Réveillé, vous vous inquiétez de l'impact sur les employés des campings.
+      CLO: En route vers le bureau, vous réfléchissez aux implications légales de
+        cette attaque.
+      CCO: Vous anticipez les défis de communication à venir, tant auprès des clients
+        que des médias.
+    options:
+      - id: o1737643326294
+        text: J'active immédiatement le protocole de crise et convoque tous les membres
+          de la cellule, en utilisant notre système de communication d'urgence
+          pré-établi.
+        impact:
+          compliance: 8
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737643376703
+        text: "Je consulte d'abord le CISO pour évaluer la gravité de la situation "
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 80
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737643407727
+        text: J'hésite sur la procédure à suivre et je perds un temps précieux, ne
+          sachant pas qui contacter en premier.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737643393333
+        name: Critères de déclenchement de crise
+        type: procedure
+        description: Protocole de déclenchement de crise détaillant les étapes précises
+          à suivre. Fiche réflexe pour le déclenchement de la cellule de crise,
+          incluant un arbre de décision rapide.
+        required: false
+      - id: r1737643444362
+        name: "Annuaire de crise "
+        type: contact
+        description: Annuaire de crise à jour, stocké de manière sécurisée et accessible
+          hors du système d'information principal
+        required: false
+      - id: r1737643470358
+        name: Moyens de communication sécurisés
+        type: tool
+        description: "Système de communication d'urgence indépendant du réseau de
+          l'entreprise (ex: plateforme de messagerie cryptée)"
+        required: false
+  - id: d1737643598410
+    text: >-
+      Évaluation initiale de l'attaque : 
+
+      La cellule de crise est maintenant réunie au siège de l'entreprise. Il est
+      crucial d'évaluer rapidement l'ampleur de l'attaque pour prendre les
+      premières décisions stratégiques. Quelle est votre première action pour
+      évaluer l'ampleur de l'attaque ?
+    roleContext:
+      CEO: Vous attendez l'évaluation du CISO pour comprendre la gravité de la
+        situation et commencer à élaborer une stratégie de réponse.
+      CFO: Vous cherchez à comprendre rapidement l'impact financier potentiel de cette
+        attaque.
+      COO: Vous êtes préoccupé par l'impact immédiat sur les opérations des campings
+        et cherchez à savoir quels systèmes sont touchés.
+      CIO: Vous travaillez en étroite collaboration avec le CISO pour évaluer les
+        dommages techniques et commencer à élaborer un plan de récupération.
+      CISO: Vous devez rapidement évaluer l'étendue des dégâts et identifier les
+        données clients potentiellement compromises.
+      HR Director: Vous vous préparez à gérer les inquiétudes du personnel et à
+        organiser une communication interne efficace.
+      CLO: Vous attendez les détails de l'évaluation pour commencer à analyser les
+        implications légales, notamment en termes de violation de données
+        personnelles.
+      CCO: Vous vous préparez à élaborer une stratégie de communication de crise basée
+        sur les résultats de l'évaluation initiale.
+    options:
+      - id: o1737643697619
+        text: Je lance immédiatement une analyse complète des systèmes affectés et isole
+          les réseaux compromis, en utilisant nos outils de détection et
+          d'analyse des menaces pré-configurés.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737643719940
+        text: Je demande un rapport à l'équipe IT mais j'ai du mal à interpréter toutes
+          les informations techniques, car nos procédures d'analyse ne sont pas
+          totalement à jour.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737643744045
+        text: Je ne sais pas par où commencer et j'attends les instructions du CEO, car
+          nous n'avons pas de plan de réponse aux incidents clair.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737643758538
+        name: Outil de detection et d'analyse des menaces
+        type: tool
+        description: Outils de détection et d'analyse des menaces configurés et prêts à
+          l'emploi
+        required: false
+      - id: r1737643775791
+        name: Plan de réponse aux incidents cyber
+        type: procedure
+        description: Plan de réponse aux incidents détaillé et à jour, incluant des
+          procédures spécifiques pour différents types d'attaques
+        required: false
+      - id: r1737643796269
+        name: Cartographie du système d'information
+        type: documentation
+        description: Cartographie à jour du système d'information, incluant les
+          interconnexions entre les différents sites
+        required: false
+      - id: r1737643820662
+        name: Procédure d'isolation des reseaux
+        type: procedure
+        description: Procédures d'isolation des réseaux en cas d'attaque, avec des
+          points de contrôle clairement définis
+        required: false
+  - id: d1737643848707
+    text: >-
+      contenir la menace : 
+
+      L'évaluation initiale révèle que le ransomware se propage rapidement à
+      travers le réseau de l'entreprise. Une décision rapide concernant le
+      verouillage des accès et l'isolation des services essentiels est
+      nécessaire pour tenter de contenir la menace. Quelle décision prenez-vous
+      concernant les accès aux systèmes et les accès à internet ?
+    roleContext:
+      CEO: Vous attendez une recommandation claire pour prendre une décision finale.
+      CFO: Vous évaluez les coûts potentiels de chaque option.
+      COO: Vous êtes préoccupé par l'impact potentiel sur les opérations des campings.
+      CIO: Vous devez prendre une décision cruciale concernant les accès aux réseaux
+        de l'entreprise.
+      CISO: Vous conseillez le CIO sur les implications de sécurité de chaque option.
+      HR Director: Vous vous inquiétez de l'impact sur la productivité des employés.
+      CLO: Vous considérez les implications légales de la restriction des accès.
+      CCO: Vous anticipez les défis de communication liés à toute décision de
+        restriction d'accès.
+    options:
+      - id: o1737644023986
+        text: Je décide de couper immédiatement tous les accès externes pour limiter la
+          propagation, en connaissance des impacts opérationnels précis que cela
+          aura sur nos campings.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737644044115
+        text: J'hésite à couper les accès car je ne suis pas sûr des conséquences
+          exactes sur nos opérations, mais je sais que c'est probablement
+          nécessaire.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737644083809
+        text: Je ne prends aucune décision, ne sachant pas qui a l'autorité pour le
+          faire ni quels seraient les impacts.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737644092738
+        name: Cartographie du SI et des services critiques
+        type: documentation
+        description: Cartographie détaillée du réseau et des systèmes critiques,
+          incluant les dépendances entre les différents sites.
+        required: false
+      - id: r1737644114299
+        name: Procédure de gestion des accès en situation de crise
+        type: procedure
+        description: Procédure de gestion des accès en situation de crise, avec des
+          niveaux d'autorisation clairement définis
+        required: false
+      - id: r1737644137670
+        name: Business Impact Analysis
+        type: documentation
+        description: Analyse d'impact sur les opérations en cas de coupure d'accès,
+          détaillant les conséquences pour chaque fonction critique
+        required: false
+      - id: r1737644161190
+        name: Liste des contacts clés dans chaque camping
+        type: contact
+        description: Liste des contacts clés dans chaque camping pour communiquer la
+          décision et ses implications
+        required: false
+      - id: r1737644178665
+        name: Outil de gestion centralisée des accès et des réseaux
+        type: tool
+        description: Outils de gestion des accès à distance permettant une coupure
+          rapide et sélective
+        required: false
+  - id: d1737644225915
+    text: "Communication interne : Les employés des 70 campings commencent leur
+      journée et découvrent qu'ils n'ont pas accès au PMS. La panique s'installe
+      car ils ne savent pas comment gérer les arrivées et départs prévus.
+      Comment gérez-vous la communication avec les employés ?"
+    roleContext:
+      CEO: Vous attendez un plan de communication clair pour valider.
+      CFO: Vous évaluez l'impact financier potentiel, pour orienter les prises de
+        décision, et pour informer rapidement les investisseurs.
+      COO: Vous fournissez des informations sur l'impact opérationnel à communiquer.
+      CIO: Vous informez sur les aspects techniques de la situation.
+      CISO: Vous conseillez sur les informations de sécurité à inclure.
+      HR Director: Vous devez rapidement informer et rassurer le personnel.
+      CLO: Vous veillez à ce que la communication soit conforme aux obligations
+        légales.
+      CCO: Vous collaborez pour assurer la cohérence entre communications interne et
+        externe.
+    options:
+      - id: o1737644355522
+        text: J'envoie immédiatement une communication claire à tous les employés via
+          nos canaux alternatifs pré-établis, expliquant la situation, les
+          mesures à suivre, et les prochaines étapes.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737644379286
+        text: Je prépare un message mais j'attends l'approbation du CEO avant de
+          l'envoyer, ce qui retarde l'information cruciale.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 59
+        feedback: ""
+        requiredResources: []
+      - id: o1737644396569
+        text: Je ne sais pas quoi communiquer et j'attends d'avoir plus d'informations,
+          laissant les rumeurs se propager.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737644407884
+        name: Plan de communication de crise
+        type: procedure
+        description: >-
+          Plan de communication de crise détaillé, incluant des modèles de
+          messages pour différents scénarios. 
+
+          Procédure de cascade d'information pour assurer une diffusion rapide
+          et cohérente à tous les niveaux de l'organisation
+        required: false
+      - id: r1737644422015
+        name: Moyens de communication alternatifs
+        type: tool
+        description: Canaux de communication alternatifs (SMS, WhatsApp, etc.) testés et
+          opérationnels
+        required: false
+      - id: r1737644435725
+        name: modèles de messages pré-approuvés
+        type: documentation
+        description: Modèles de messages pré-approuvés pour différents scénarios de
+          crise, adaptés à chaque niveau hiérarchique
+        required: false
+      - id: r1737644448988
+        name: "Coordonées des collaborateurs "
+        type: contact
+        description: Liste à jour des contacts de tous les employés, accessible hors du
+          système IT principal
+        required: false
+  - id: d1737644582471
+    text: "Gestion des médias : Les premières informations sur l'attaque et le vol
+      de données clients commencent à fuiter sur les réseaux sociaux. Des
+      clients mécontents postent déjà des commentaires négatifs sur les pages
+      des campings. Comment gérez-vous les demandes des médias et la
+      communication sur les réseaux sociaux ?"
+    roleContext:
+      CEO: Vous devez valider la stratégie de communication et potentiellement agir
+        comme porte-parole.
+      CFO: Vous évaluez l'impact financier potentiel des déclarations publiques.
+      COO: Vous informez sur l'impact opérationnel à communiquer.
+      CIO: Vous fournissez des détails sur l'état des systèmes et les efforts de
+        récupération.
+      CISO: Vous fournissez des informations techniques précises et concises sur
+        l'incident et le plan d'action.
+      HR Director: Vous vous assurez que les employés sont informés de la stratégie
+        médiatique.
+      CLO: Vous conseillez sur les implications légales des déclarations publiques.
+      CCO: Vous devez rapidement élaborer une stratégie de communication externe.
+    options:
+      - id: o1737644696782
+        text: Je prépare rapidement une déclaration officielle, désigne un porte-parole
+          unique, et établis une stratégie de gestion des réseaux sociaux
+          cohérente pour tous nos campings.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737644704577
+        text: Je réponds au cas par cas aux demandes des médias et laisse chaque camping
+          gérer sa propre communication, mais je manque de cohérence dans mes
+          messages.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737644726962
+        text: Je refuse de commenter, espérant que la situation passera inaperçue, ce
+          qui aggrave la perception négative.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737644755259
+        name: "Stratégie de communication de crise externe "
+        type: procedure
+        description: Stratégie de communication de crise pré-établie, incluant des
+          scénarios pour différents types d'incidents, incluant les éléments de
+          langage pré-approuvés pour différents scénarios, traduits dans les
+          langues pertinentes. Contacts des principaux médias et journalistes
+          dans chaque pays d'opération
+        required: false
+      - id: r1737644785664
+        name: •	Liste des porte-paroles autorisés
+        type: contact
+        description: Liste des porte-paroles autorisés et formés pour chaque pays
+          d'opération
+        required: false
+      - id: r1737644805748
+        name: Outils de surveillance relation publiques
+        type: tool
+        description: Outils de surveillance et de gestion des réseaux sociaux, avec des
+          alertes configurées
+        required: false
+      - id: r1737644841791
+        name: Équipe de communication réseaux sociaux
+        type: procedure
+        description: Équipe de gestion de communauté formée pour répondre rapidement et
+          de manière cohérente sur les réseaux sociaux
+        required: false
+  - id: d1737644923831
+    text: "Notification aux autorités : Avec des données clients exfiltrées et des
+      opérations dans trois pays européens, l'entreprise doit rapidement
+      notifier les autorités compétentes, conformément au RGPD et aux lois
+      locales. Quelles actions entreprendrez-vous concernant les obligations
+      légales de notification ? En complément vous devez porter plainte sous 72h
+      pour que l'assurance cyber puisse vous couvrir qui s'en charge ?"
+    roleContext:
+      CEO: Vous devez approuver la stratégie de notification, et valider le dépot de
+        plainte.
+      CFO: Vous évaluez les implications financières potentielles des notifications.
+      COO: Vous informez sur l'impact opérationnel de la violation.
+      CIO: Vous collaborez pour fournir des informations sur les systèmes affectés.
+      CISO: Vous fournissez les détails techniques de la violation de données.
+      HR Director: Vous vous assurez que les employés comprennent l'importance de la
+        confidentialité.
+      CLO: Vous devez coordonner les notifications légales dans les trois pays.
+      CCO: Vous préparez la communication externe liée aux notifications.
+    options:
+      - id: o1737645064304
+        text: Je notifie immédiatement les autorités de protection des données en
+          France, Italie et Espagne, en fournissant toutes les informations
+          requises, et je prépare une communication pour les clients affectés.
+          Je sais qui va porter plainte dans chaque pays.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737645099352
+        text: Je commence à préparer les notifications mais j'hésite sur les délais
+          exacts et les informations à fournir dans chaque pays. Idem pour
+          porter plainte.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737645133074
+        text: Je ne suis pas sûr des obligations légales dans chaque pays et je retarde
+          les notifications, risquant des sanctions importantes. je dépasse le
+          délai de 72h pour la notification et la plainte.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737645164972
+        name: procédure de notification
+        type: procedure
+        description: "Procédures détaillées de notification aux autorités de protection
+          des données en France, Italie et Espagne. "
+        required: false
+      - id: r1737645177503
+        name: •	Contacts à jour des autorités compétentes dans chaque pays
+        type: contact
+        description: Contacts à jour des autorités compétentes dans chaque pays
+        required: false
+      - id: r1737645188421
+        name: Modèles de notification et de plainte pré-approuvés
+        type: documentation
+        description: Modèles de notification pré-approuvés pour différents scénarios de
+          violation de données, traduits dans les langues pertinentes
+        required: false
+      - id: r1737645229720
+        name: Inventaire des données potentiellement compromises
+        type: documentation
+        description: Inventaire des données potentiellement compromises, régulièrement
+          mis à jour
+        required: false
+  - id: d1737645249481
+    text: >-
+      Gestion de la continuité des activités : Mise en place du mode dégradé.
+
+      Avec le PMS inaccessible, les campings doivent rapidement basculer en mode
+      de fonctionnement dégradé pour gérer les arrivées et départs des clients.
+      En complément, les reservations ne sont plus disponibles que par
+      téléphone, le site web etant indisponible. Comment organisez-vous la mise
+      en place du mode de fonctionnement dégradé dans les campings et pour les
+      reservation ?
+    roleContext:
+      CEO: Vous devez valider les décisions opérationnelles majeures.
+      CFO: Vous devez évaluer les coûts associés au mode dégradé et estimer les pertes
+        par rapport au fonctionnement nominal.
+      COO: Vous devez coordonner la mise en place des procédures de fonctionnement en
+        mode dégradé.
+      CIO: Vous devez fournir des solutions alternatives temporaires.
+      CISO: Vous devez vous assurer que les solutions temporaires ne créent pas de
+        nouvelles vulnérabilités.
+      HR Director: Vous devez gérer les inquiétudes du personnel face aux changements
+        de procédures.
+      CLO: Vous devez vous assurer que les procédures dégradées respectent les
+        obligations légales.
+      CCO: Vous devez préparer les éléments de communication qui seront indiqués aux
+        clients sur les changements de procédures.
+    options:
+      - id: o1737645411599
+        text: J'active immédiatement notre plan de continuité d'activité détaillé, en
+          déployant des procédures manuelles pré-établies pour la gestion des
+          réservations et l'accueil des clients dans tous les campings.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737645424502
+        text: Je mets en place des procédures basiques de gestion manuelle, mais je
+          réalise que certains aspects n'ont pas été anticipés, ce qui crée des
+          difficultés.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737645436774
+        text: Je n'ai pas de plan clair pour fonctionner sans le PMS et je laisse chaque
+          camping se débrouiller, créant une situation chaotique. je n'ai pas
+          non plus de plan clair pour gerer les reservations, les clients
+          partent reserver chez nos concurents.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 16
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737645476449
+        name: Plan de continuité d'activité détaillé
+        type: procedure
+        description: Plan de continuité d'activité détaillé pour les fonctions critiques
+          de l'entreprise
+        required: false
+      - id: r1737645497552
+        name: Kit d'urgence pour chaque camping
+        type: documentation
+        description: "Kit d'urgence pour chaque camping contenant les formulaires et
+          outils nécessaires en mode dégradé (procédure manuelles pré-établies)
+          pour la gestion des réservations et l'accueil des clients. "
+        required: false
+      - id: r1737645528652
+        name: Système de communication alternatif
+        type: tool
+        description: Système de communication alternatif pour coordonner les actions
+          entre le siège et les campings
+        required: false
+      - id: r1737645579342
+        name: procédure de continuité du call center
+        type: procedure
+        description: procédure et capacité à rediriger le flux des site web vers le call
+          center en mode dégradé
+        required: false
+  - id: d1737645650133
+    text: >-
+      Gestion de la communication interne de crise : La cellule de crise doit
+      établir un système efficace de communication interne pour coordonner ses
+      actions et prendre des décisions rapides, les membres de la cellule de
+      crise vont devoir rester mobilisés dans le temps.
+
+      Comment organisez-vous la communication interne de l'équipe de crise ?
+    roleContext:
+      CEO: Vous devez assurer une prise de décision efficace basée sur des
+        informations à jour.
+      CFO: Vous devez suivre l'évolution des coûts et impacts liés à la crise, et
+        assurer la communication avec les investisseurs et les assureurs.
+      COO: Vous devez coordonner la remontée d'informations depuis les campings.
+      CIO: Vous devez fournir des outils de communication alternatifs sécurisés.
+      CISO: Vous devez vous assurer que les communications de crise sont sécurisées.
+      HR Director: Vous devez assurer la diffusion des informations pertinentes aux
+        employés.
+      CLO: Vous devez veiller à la confidentialité des communications sensibles et
+        communiquer avec vos conseils juridiques.
+      CCO: Vous devez mettre en place un système de communication interne robuste.
+    options:
+      - id: o1737645784738
+        text: Je mets en place un système de communication multi-canal sécurisé,
+          incluant des conférences téléphoniques régulières, une plateforme de
+          partage de documents en temps réel, et un groupe de messagerie
+          instantanée pour les updates rapides.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737645796227
+        text: J'organise des appels réguliers et utilise le email pour partager les
+          informations, mais je réalise que certaines informations critiques
+          sont parfois perdues ou mal communiquées.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737645809160
+        text: Je compte principalement sur les emails personnels et les appels ad hoc,
+          ce qui conduit à une communication désorganisée et inefficace, et une
+          perte de temps pour disposer de points de situation à jour.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737645865636
+        name: Plateforme de communication de crise sécurisée
+        type: tool
+        description: "Plateforme de communication de crise sécurisée et accessible hors
+          du réseau de l'entreprise. Outil de gestion de projet collaboratif
+          pour le suivi des actions et des décisions. "
+        required: false
+      - id: r1737645878946
+        name: format de reporting et de point d'avancement
+        type: documentation
+        description: >-
+          Protocole de communication interne détaillant la fréquence et le
+          format des mises à jour. 
+
+          Modèles de rapports de situation standardisés pour assurer une
+          remontée d'information cohérente.
+        required: false
+      - id: r1737645907171
+        name: Liste des membres de la cellule de crise
+        type: contact
+        description: Liste des participants aux différents canaux de communication avec
+          leurs rôles et responsabilités
+        required: false
+  - id: d1737645976012
+    text: "Gestion de la paie en mode dégradé : La fin du mois approche et le
+      système de paie habituel est inaccessible. L'entreprise doit trouver une
+      solution pour assurer le paiement des salaires à temps. Comment
+      assurez-vous le paiement des salaires en l'absence du système de paie
+      habituel ou en l'absence du système de gestion des temps de présence ?"
+    roleContext:
+      CEO: Vous devez valider la stratégie de paie d'urgence.
+      CFO: Vous devez trouver une solution pour assurer la paie en mode dégradé.
+      COO: Vous devez évaluer l'impact sur les opérations s'il y a un risque que les
+        saisoniers ne viennent pas le mois suivant.
+      CIO: Vous devez fournir des solutions techniques alternatives si possible, ou
+        des extractions de données du mois précédent.
+      CISO: Vous devez vous assurer que les solutions alternatives ne compromettent
+        pas la sécurité des données.
+      HR Director: Vous devez coordonner avec le service paie et rassurer les employés.
+      CLO: Vous devez vérifier la conformité légale des solutions proposées.
+      CCO: Vous devez préparer la communication aux employés concernant la paie.
+    options:
+      - id: o1737646137021
+        text: J'active notre plan de continuité pour la paie, utilisant une copie
+          sécurisée des données de paie du mois précédent et un processus manuel
+          validé pour les ajustements, en coordination étroite avec les banques.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737646146552
+        text: Je propose de payer à tous les employés le même salaire que le mois
+          précédent, en promettant des régularisations ultérieures, mais je
+          réalise que cela pourrait causer des problèmes pour certains cas
+          particuliers.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737646169044
+        text: Je n'ai pas de plan de secours et je suggère de retarder la paie, ce qui
+          risque de créer une crise sociale en plus de la crise technique.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646185202
+        name: Plan de continuité spécifique pour la fonction paie
+        type: procedure
+        description: Plan de continuité spécifique pour la fonction paie, incluant la
+          rocédure manuelle validée pour le calcul et le versement des salaires
+          en mode dégradé. Modèle de communication aux employés concernant la
+          gestion de la paie en situation de crise
+        required: false
+      - id: r1737646193765
+        name: Copie des données de paie du mois précédent
+        type: documentation
+        description: Copie sécurisée et à jour des données de paie du mois précédent,
+          stockée hors du système principal
+        required: false
+      - id: r1737646219362
+        name: Liste des contacts pour les virements d'urgence
+        type: contact
+        description: Liste des contacts bancaires pour les virements d'urgence
+        required: false
+  - id: d1737646279281
+    text: "Gestion d'un afflux massif d'appels clients : Suite à la fuite
+      d'informations sur l'attaque, les centres d'appels sont submergés par les
+      clients inquiets pour leurs réservations et leurs données personnelles.
+      Comment gérez-vous l'afflux massif d'appels clients ?"
+    roleContext:
+      CEO: Vous devez décider des mesures exceptionnelles à prendre pour gérer la
+        crise client.
+      CFO: Vous devez évaluer les coûts des mesures d'urgence pour le service client.
+      COO: Vous devez gérer l'afflux massif d'appels et maintenir la qualité du
+        service client.
+      CIO: Vous devez fournir des solutions techniques pour augmenter la capacité de
+        gestion des appels.
+      CISO: Vous devez vous assurer que les informations fournies aux clients ne
+        compromettent pas la sécurité.
+      HR Director: Vous devez mobiliser du personnel supplémentaire pour gérer les appels.
+      CLO: Vous devez veiller à ce que les réponses aux clients respectent les
+        obligations légales.
+      CCO: Vous devez préparer des éléments de langage pour les agents du service
+        client.
+    options:
+      - id: o1737646348032
+        text: J'active notre plan de gestion de crise client, en déployant rapidement du
+          personnel supplémentaire formé, en mettant en place un système de
+          triage des appels, et en utilisant des canaux de communication
+          alternatifs comme les chatbots et les FAQ en ligne.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737646369915
+        text: J'augmente les effectifs du service client et je fournis des scripts de
+          réponse, mais je réalise que nous manquons de canaux alternatifs
+          efficaces pour gérer le volume d'appels.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737646381118
+        text: Je n'ai pas de plan pour gérer un tel volume d'appels et je me contente de
+          demander au call-center de faire de leur mieux, ce qui conduit à de
+          longs temps d'attente et des clients mécontents.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646404692
+        name: Plan de gestion de crise client détaillé
+        type: procedure
+        description: procédure, Scripts et éléments de langage pré-approuvés pour
+          différents scénarios de questions clients
+        required: false
+      - id: r1737646436210
+        name: Outils de communication alternatifs
+        type: tool
+        description: Outils de communication alternatifs (chatbots, FAQ dynamique,
+          système de messagerie) et Système de triage des appels pour prioriser
+          les demandes urgentes
+        required: false
+  - id: d1737646481322
+    text: "Suivi et documentation de la crise : Alors que la crise se poursuit, il
+      devient crucial de maintenir un suivi précis de toutes les actions
+      entreprises et des décisions prises pour assurer une gestion efficace et
+      faciliter l'analyse post-crise. Comment assurez-vous un suivi efficace et
+      une documentation complète de la gestion de crise ?"
+    roleContext:
+      CEO: Vous devez vous assurer que toutes les décisions majeures sont correctement
+        documentées.
+      CFO: Vous devez suivre et documenter tous les coûts liés à la crise.
+      COO: Vous devez coordonner la documentation des actions opérationnelles.
+      CIO: Vous devez mettre en place un système de suivi des actions techniques.
+      CISO: Vous devez documenter tous les aspects liés à la sécurité et à
+        l'investigation.
+      HR Director: Vous devez documenter les impacts sur le personnel et les actions RH.
+      CLO: Vous devez vous assurer que la documentation est conforme aux exigences
+        légales.
+      CCO: Vous devez centraliser les informations pour les communications internes et
+        externes.
+    options:
+      - id: o1737646540827
+        text: Je mets en place un système centralisé de suivi de crise, avec un
+          responsable dédié pour maintenir une main courante détaillée, des
+          réunions de synchronisation régulières, et un processus de validation
+          pour toutes les décisions majeures.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737646550821
+        text: Je demande à chaque membre de l'équipe de crise de tenir un journal de ses
+          actions, mais je réalise que le manque de centralisation rend
+          difficile d'avoir une vue d'ensemble cohérente.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737646567418
+        text: Je compte sur les notes individuelles et les emails pour documenter la
+          crise, ce qui conduit à une documentation fragmentée et incomplète, je
+          perds des informations et doit refaire plusieurs fois certaines
+          actions pour confirmer quelque chose qui a déjà été fait.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646612376
+        name: Outil de gestion de crise centralisé
+        type: tool
+        description: Outil de gestion de crise centralisé pour le suivi des actions et
+          des décisions. Système de backup régulier de toute la documentation de
+          crise.
+        required: false
+      - id: r1737646627091
+        name: Procédure de tenue de la main courante
+        type: procedure
+        description: Procédure de tenue de la main courante avec des modèles standardisés
+        required: false
+      - id: r1737646641753
+        name: Calendrier des réunions de synchronisation
+        type: procedure
+        description: Calendrier des réunions de synchronisation avec des ordres du jour
+          prédéfinis
+        required: false
+      - id: r1737646658313
+        name: Processus de validation et d'archivage des décisions majeures
+        type: procedure
+        description: Processus de validation et d'archivage des décisions majeures
+        required: false
+  - id: d1737646699554
+    text: "Allocation des ressources d'urgence : La crise nécessite des ressources
+      financières immédiates pour la gestion de l'incident, la récupération des
+      données et le soutien aux opérations des campings. Une décision rapide sur
+      l'allocation de ces ressources est cruciale. Comment décidez-vous
+      d'allouer les ressources financières d'urgence ?"
+    roleContext:
+      CEO: Vous devez autoriser le déblocage de fonds d'urgence.
+      CFO: Vous devez identifier les sources de financement d'urgence en coordination
+        avec les investisseurs.
+      COO: Vous identifiez les besoins opérationnels urgents.
+      CIO: Vous estimez les coûts de récupération technique et de reconstruction.
+      CISO: Vous évaluez les besoins en ressources pour l'investigation et la
+        correction des vulnérabilités exploitées.
+      HR Director: Vous considérez les besoins en ressources pour le soutien aux employés.
+      CLO: Vous évaluez les besoins en ressources pour répondre aux exigences légales
+        et réglementaires.
+      CCO: Vous évaluez les besoins en ressources pour la gestion de la communication.
+    options:
+      - id: o1737646841466
+        text: J'autorise immédiatement un budget d'urgence conséquent, basé sur une
+          évaluation rapide mais complète des besoins, en priorisant la
+          récupération du PMS, le soutien opérationnel aux campings et la
+          communication de crise. j'ai un plan de réallocation des ressources
+          financières existantes et je sais analyser rapidement les impacts
+          financiers à court et long terme.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737646854049
+        text: J'hésite à engager des dépenses importantes sans une analyse détaillée des
+          coûts et des bénéfices, malgré l'urgence de la situation.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737646886790
+        text: Je ne sais pas comment débloquer rapidement des fonds pour cette situation
+          imprévue en pleine saison et je retarde la décision.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646900504
+        name: Procédure d'autorisation des dépenses d'urgence
+        type: procedure
+        description: Procédure d'autorisation des dépenses d'urgence et Budget de
+          contingence pour les situations de crise.
+        required: false
+      - id: r1737646910009
+        name: Liste des fournisseurs et experts pré-approuvés
+        type: contact
+        description: Liste des fournisseurs et experts pré-approuvés (reconstruction IT,
+          investigation sécurité, communication de crise, expertise juridique)
+        required: false
+      - id: r1737646958410
+        name: Analyse des impacts financiers à court et long terme
+        type: documentation
+        description: Analyse des impacts financiers à court et long terme
+        required: false
+  - id: d1737647059791
+    text: "Plan de récupération : Avec le PMS hors service, il est crucial
+      d'orchestrer rapidement la restauration des données et des services
+      critiques pour les 70 campings. Chaque jour d'inactivité représente des
+      pertes significatives en pleine saison"
+    roleContext:
+      CEO: Vous supervisez le plan global de récupération.
+      CFO: Vous allouez les ressources financières pour la récupération.
+      COO: Vous identifiez les priorités opérationnelles pour la récupération.
+      CIO: Vous devez diriger l'effort de récupération technique.
+      CISO: Vous veillez à ce que la récupération se fasse de manière sécurisée et que
+        l'attaque ne se reproduise pas.
+      HR Director: Vous gérez les besoins en personnel pour la récupération en
+        réallouant certains collaborateurs à cette tâche.
+      CLO: Vous veillez au respect des obligations légales pendant la récupération.
+      CCO: Vous communiquez sur les progrès de la récupération.
+    options:
+      - id: o1737647149046
+        text: J'active notre plan de reprise après sinistre détaillé, en priorisant la
+          restauration du PMS central et en déployant des solutions temporaires
+          pour chaque camping, tout en veillant à la sécurité.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: ""
+        requiredResources: []
+      - id: o1737647163462
+        text: Je commence la restauration mais je réalise que certaines sauvegardes du
+          PMS ne sont pas à jour ou sont inaccessibles, ce qui complique le
+          processus.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: ""
+        requiredResources: []
+      - id: o1737647175809
+        text: Je n'ai pas de plan clair pour la restauration d'un système aussi critique
+          et je ne sais pas par où commencer, perdant un temps précieux. Je n'ai
+          plus connaissance de l'historique et mes anciens prestataires ne
+          travaillent plus pour nous. Mes sauvegardes sont indisponibles, elles
+          ont été chiffrées durant l'attaque.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 20
+        feedback: ""
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737647248943
+        name: Inventaire des sauvegardes et procédures de restauration
+        type: procedure
+        description: Inventaire des sauvegardes et procédures de restauration.
+          Procédures de vérification de l'intégrité des données
+          post-restauration
+        required: false
+      - id: r1737647257996
+        name: Équipe technique dédiée à la récupération
+        type: contact
+        description: Équipe technique dédiée à la récupération, incluant des experts du PMS
+        required: false
+      - id: r1737647277698
+        name: •	Environnement de test isolé pour valider les données restaurées
+        type: tool
+        description: Environnement de test isolé pour valider les données restaurées
+        required: false
+      - id: r1737647294698
+        name: Liste priorisée des systèmes et données à restaurer
+        type: documentation
+        description: Liste priorisée des systèmes et données à restaurer
+          (infrastructure, données, liens et interdépendance avec des systèmes
+          tiers).
+        required: false
+regulatoryRequirements: []
+prerequisites: []
+supportingDocuments: []

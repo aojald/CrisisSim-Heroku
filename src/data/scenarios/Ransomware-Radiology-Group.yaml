@@ -1,0 +1,1015 @@
+id: scenario-1737643067790
+type: Ransomware
+title: "[full][EN] - Ransomware Radiology Group Europe"
+description: RadiantCare Europe Ltd., a leading radiology group with 50 imaging
+  centers across Germany, France, and the Netherlands, is hit by a sophisticated
+  ransomware attack. The centralized PACS (Picture Archiving and Communication
+  System) / DICOM system, critical for CT scanners, MRIs, and radiography, is
+  encrypted, rendering diagnostic imaging services inoperable. This disruption
+  poses immediate risks to patient safety, as hospitals rely on these services
+  for life-saving diagnoses, potentially leading to fatalities if not restored
+  quickly. Attackers have exfiltrated sensitive patient medical data and demand
+  a €3 million ransom in cryptocurrency, threatening to leak the data if unpaid
+  within 48 hours. The crisis begins on June 1, 2025, at 2 a.m., during a peak
+  period for diagnostic imaging. Patients are scheduled for critical procedures,
+  and delays could be life-threatening.
+industry:
+  - Healthcare
+companySize:
+  - Large
+severity: Critical
+timeline:
+  - id: d1737643152496
+    text: >-
+      General Context:
+
+      RadiantCare Europe Ltd., a leading radiology group with 50 imaging centers
+      across Germany, France, and the Netherlands, is hit by a sophisticated
+      ransomware attack. The centralized PACS / DICOM system, critical for CT
+      scanners, MRIs, and radiography, is encrypted, halting diagnostic imaging
+      services. This poses severe risks to patient safety, as hospitals cannot
+      perform life-saving diagnostics, potentially leading to fatalities.
+      Attackers have exfiltrated sensitive patient data and demand a €3 million
+      ransom, threatening to leak it within 48 hours. The crisis begins on June
+      1, 2025, at 2 a.m., during a peak diagnostic period. Patients await
+      critical procedures, unaware of the crisis.
+
+      The CEO must be alerted to activate the crisis management team to restore
+      IT resilience and protect patient safety. How do you activate the crisis
+      management team?
+    roleContext:
+      CEO: You receive an urgent call from the CISO detailing the critical situation
+        impacting patient safety.
+      CFO: Awakened by the CEO, you anticipate financial implications of disrupted
+        services.
+      COO: Alerted, you focus on operational challenges to maintain imaging services.
+      CIO: You work with IT to assess the attack’s scope and restore PACS resilience.
+      CISO: You detected the attack, informed the CEO, and are gathering data.
+      HR Director: You worry about staff stress due to patient safety risks.
+      CLO: You consider legal implications of the attack and data breach.
+      CCO: You anticipate communication challenges with hospitals and patients.
+    options:
+      - id: o1737643326295
+        text: I immediately activate the crisis protocol and convene all crisis team
+          members using our pre-established emergency communication system to
+          prioritize IT resilience and patient safety.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Excellent choice. Swift activation ensures rapid coordination,
+          prioritizing patient safety by restoring critical imaging services and
+          addressing the data breach effectively.
+        requiredResources: []
+      - id: o1737643376704
+        text: I consult the CISO first to assess the situation’s severity before
+          proceeding, delaying immediate action.
+        impact:
+          compliance: 60
+          stakeholder: 40
+          business: 50
+          time: 40
+        feedback: Consulting the CISO is prudent, but the delay risks patient lives due
+          to prolonged imaging downtime. Faster activation could accelerate IT
+          resilience efforts.
+        requiredResources: []
+      - id: o1737643407728
+        text: I hesitate on the procedure and lose time, unsure whom to contact first.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Hesitation is costly in a crisis where lives are at risk. Failure to
+          act promptly delays PACS restoration, endangering patients and
+          organizational trust.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737643393334
+        name: Crisis Activation Criteria
+        type: procedure
+        description: Detailed crisis activation protocol with steps to prioritize
+          patient safety and IT resilience. Quick-reference guide with decision
+          tree.
+        required: false
+      - id: r1737643444363
+        name: Crisis Contact Directory
+        type: contact
+        description: Up-to-date crisis contact directory, securely stored outside the
+          main IT system.
+        required: false
+      - id: r1737643470359
+        name: Secure Communication Tools
+        type: tool
+        description: Emergency communication system independent of the corporate network
+          (e.g., encrypted messaging platform).
+        required: false
+  - id: d1737643598411
+    text: >-
+      Initial Attack Assessment:
+
+      The crisis team is assembled at headquarters. Rapidly assessing the
+      attack’s scope is critical to restore PACS and ensure patient safety, as
+      hospitals depend on imaging for life-saving diagnoses. What is your first
+      action to evaluate the attack’s impact?
+    roleContext:
+      CEO: You await the CISO’s assessment to prioritize patient safety and IT
+        recovery.
+      CFO: You assess financial impacts of prolonged imaging downtime.
+      COO: You focus on the operational impact on imaging services and patient care.
+      CIO: You collaborate with the CISO to evaluate technical damage and plan PACS
+        restoration.
+      CISO: You assess damage extent and identify compromised patient data.
+      HR Director: You address staff concerns about patient safety risks.
+      CLO: You analyze legal implications of the data breach and service disruption.
+      CCO: You prepare a communication strategy based on the assessment.
+    options:
+      - id: o1737643697620
+        text: I launch a comprehensive analysis of affected systems and isolate
+          compromised networks using pre-configured threat detection tools to
+          ensure rapid PACS restoration.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Strong decision. Comprehensive analysis and isolation enable rapid
+          damage identification, supporting swift PACS restoration critical for
+          patient safety.
+        requiredResources: []
+      - id: o1737643719941
+        text: I request an IT report but struggle to interpret technical details due to
+          outdated analysis procedures.
+        impact:
+          compliance: 60
+          stakeholder: 50
+          business: 40
+          time: 40
+        feedback: Requesting a report is a step forward, but outdated procedures slow
+          assessment, delaying PACS restoration and risking patient lives.
+        requiredResources: []
+      - id: o1737643744046
+        text: I’m unsure where to start and await CEO instructions, lacking a clear
+          incident response plan.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Inaction is dangerous. Without a response plan, delays prolong imaging
+          downtime, endangering patients and damaging trust.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737643758539
+        name: Threat Detection and Analysis Tools
+        type: tool
+        description: Configured threat detection and analysis tools for rapid assessment.
+        required: false
+      - id: r1737643775792
+        name: Cyber Incident Response Plan
+        type: procedure
+        description: Detailed incident response plan with procedures for ransomware
+          attacks impacting patient safety systems.
+        required: false
+      - id: r1737643796270
+        name: IT System Mapping
+        type: documentation
+        description: Current IT system mapping, including PACS and site interconnections.
+        required: false
+      - id: r1737643820663
+        name: Network Isolation Procedure
+        type: procedure
+        description: Network isolation procedures with checkpoints to protect critical
+          systems.
+        required: false
+  - id: d1737643848708
+    text: >-
+      Contain the Threat:
+
+      The assessment reveals the ransomware is spreading rapidly, threatening
+      further disruption to PACS and patient safety. A swift decision on locking
+      access and isolating critical services is needed. What decision do you
+      make regarding system and internet access?
+    roleContext:
+      CEO: You expect a recommendation to prioritize patient safety and PACS
+        restoration.
+      CFO: You evaluate costs of access restrictions versus patient risks.
+      COO: You focus on maintaining imaging operations for patient care.
+      CIO: You decide on network access to protect critical systems.
+      CISO: You advise on security implications to prevent further spread.
+      HR Director: You address staff productivity concerns under restrictions.
+      CLO: You consider legal implications of access restrictions.
+      CCO: You anticipate communication challenges from access changes.
+    options:
+      - id: o1737644023987
+        text: I immediately cut all external access to limit propagation, aware of the
+          precise operational impacts on imaging centers and patient care.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Decisive action. Cutting external access contains the ransomware,
+          protecting PACS and prioritizing patient safety with minimal delay.
+        requiredResources: []
+      - id: o1737644044116
+        text: I hesitate to cut access, unsure of the exact operational consequences,
+          though I know it’s likely necessary.
+        impact:
+          compliance: 60
+          stakeholder: 40
+          business: 50
+          time: 40
+        feedback: Hesitation delays containment, risking further PACS disruption and
+          patient safety. A faster decision could reduce spread and downtime.
+        requiredResources: []
+      - id: o1737644083810
+        text: I make no decision, unsure who has authority or what the impacts would be.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Failure to act allows ransomware spread, prolonging imaging downtime
+          and endangering patients. Clear authority is critical.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737644092739
+        name: Critical Systems and Services Mapping
+        type: documentation
+        description: Detailed mapping of PACS and critical systems, including site
+          dependencies.
+        required: false
+      - id: r1737644114300
+        name: Crisis Access Management Procedure
+        type: procedure
+        description: Access management procedure in crisis, with defined authorization
+          levels.
+        required: false
+      - id: r1737644137671
+        name: Business Impact Analysis
+        type: documentation
+        description: Impact analysis for access cutoffs, detailing patient safety
+          consequences.
+        required: false
+      - id: r1737644161191
+        name: Key Contacts List for Each Imaging Center
+        type: contact
+        description: Key contacts at each imaging center for decision communication.
+        required: false
+      - id: r1737644178666
+        name: Centralized Access and Network Management Tool
+        type: tool
+        description: Tools for rapid, selective access cutoffs to protect PACS.
+        required: false
+  - id: d1737644225916
+    text: >-
+      Internal Communication:
+
+      Staff at the 50 imaging centers discover the PACS system is down, critical
+      for CT, MRI, and radiography. Panic sets in as they cannot manage patient
+      diagnostics, risking lives. How do you manage communication with
+      employees?
+    roleContext:
+      CEO: You expect a clear communication plan to maintain staff focus on patient
+        safety.
+      CFO: You assess financial impacts of communication delays on operations.
+      COO: You provide operational impact details for staff updates.
+      CIO: You inform on technical efforts to restore PACS.
+      CISO: You advise on security details to share with staff.
+      HR Director: You inform and reassure staff to maintain morale.
+      CLO: You ensure communication complies with legal obligations.
+      CCO: You ensure consistency in internal and external messaging.
+    options:
+      - id: o1737644355523
+        text: I send an immediate, clear communication to all employees via
+          pre-established alternative channels, explaining the situation,
+          patient safety measures, and steps to restore PACS.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Effective communication. Timely messaging keeps staff informed and
+          focused, supporting patient safety and IT resilience efforts.
+        requiredResources: []
+      - id: o1737644379287
+        text: I prepare a message but wait for CEO approval, delaying critical
+          information.
+        impact:
+          compliance: 50
+          stakeholder: 40
+          business: 50
+          time: 40
+        feedback: Waiting for approval delays staff updates, increasing panic and
+          risking patient care disruptions. Faster communication is essential.
+        requiredResources: []
+      - id: o1737644396570
+        text: I’m unsure what to communicate and wait for more details, allowing rumors
+          to spread.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Inaction fuels confusion and rumors, undermining staff confidence and
+          patient safety efforts. Immediate communication is critical.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737644407885
+        name: Crisis Communication Plan
+        type: procedure
+        description: Detailed crisis communication plan with templates for patient
+          safety scenarios.
+        required: false
+      - id: r1737644422016
+        name: Alternative Communication Channels
+        type: tool
+        description: Tested alternative communication channels (SMS, WhatsApp, etc.).
+        required: false
+      - id: r1737644435726
+        name: Pre-Approved Message Templates
+        type: documentation
+        description: Pre-approved message templates for crisis scenarios, tailored for
+          staff.
+        required: false
+      - id: r1737644448989
+        name: Employee Contact Details
+        type: contact
+        description: Up-to-date employee contact list, accessible outside the main IT
+          system.
+        required: false
+  - id: d1737644582472
+    text: >-
+      Media Management:
+
+      Reports of the attack and patient data breach leak on social media. Angry
+      patients and hospitals post negative comments, threatening trust. How do
+      you handle media inquiries and social media communication to protect
+      patient trust?
+    roleContext:
+      CEO: You approve the communication strategy and may act as spokesperson.
+      CFO: You assess financial impacts of public statements.
+      COO: You provide operational impact details for communication.
+      CIO: You update on PACS restoration efforts.
+      CISO: You provide concise technical details on the incident.
+      HR Director: You ensure staff are informed of the media strategy.
+      CLO: You advise on legal implications of public statements.
+      CCO: You develop an external communication strategy.
+    options:
+      - id: o1737644696783
+        text: I prepare an official statement, designate a single spokesperson, and
+          establish a cohesive social media strategy to reassure patients and
+          hospitals.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Well done. A unified, proactive strategy maintains patient and
+          hospital trust, mitigating reputational damage during this critical
+          time.
+        requiredResources: []
+      - id: o1737644704578
+        text: I respond to media inquiries case-by-case and let each center manage its
+          communication, but lack consistency.
+        impact:
+          compliance: 40
+          stakeholder: 50
+          business: 50
+          time: 50
+        feedback: Inconsistent messaging confuses stakeholders, risking further
+          reputational harm. A unified strategy is needed to maintain trust.
+        requiredResources: []
+      - id: o1737644726963
+        text: I refuse to comment, hoping the situation goes unnoticed, worsening public
+          perception.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Silence escalates distrust among patients and hospitals, amplifying
+          reputational damage. Proactive communication is essential.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737644755260
+        name: External Crisis Communication Strategy
+        type: procedure
+        description: Pre-established strategy with talking points and media contacts in
+          each country.
+        required: false
+      - id: r1737644785665
+        name: Authorized Spokespersons List
+        type: contact
+        description: Trained spokespersons for each country of operation.
+        required: false
+      - id: r1737644805749
+        name: PR Monitoring Tools
+        type: tool
+        description: Social media monitoring tools with configured alerts.
+        required: false
+      - id: r1737644841792
+        name: Social Media Communication Team
+        type: procedure
+        description: Trained team for rapid, consistent social media responses.
+        required: false
+  - id: d1737644923832
+    text: >-
+      Notification to Authorities:
+
+      With patient data exfiltrated and operations in three countries, you must
+      notify authorities per GDPR and local laws, and file a complaint within 72
+      hours for cyber insurance. Who handles this, and what actions do you take?
+    roleContext:
+      CEO: You approve the notification and complaint strategy.
+      CFO: You assess financial implications of notifications.
+      COO: You inform on operational impacts of the breach.
+      CIO: You provide details on affected systems.
+      CISO: You provide technical breach details.
+      HR Director: You ensure staff confidentiality awareness.
+      CLO: You coordinate notifications across countries.
+      CCO: You prepare external communication for notifications.
+    options:
+      - id: o1737645064305
+        text: I notify data protection authorities in Germany, France, and the
+          Netherlands, provide all required details, prepare patient
+          communication, and designate personnel to file complaints.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Excellent. Prompt notifications and complaint filings ensure GDPR
+          compliance and insurance coverage, maintaining trust and legal
+          standing.
+        requiredResources: []
+      - id: o1737645099353
+        text: I start preparing notifications but hesitate on exact deadlines and
+          required details per country, as well as complaint filing procedures.
+        impact:
+          compliance: 40
+          stakeholder: 50
+          business: 50
+          time: 40
+        feedback: Hesitation risks missing GDPR deadlines and insurance requirements,
+          potentially leading to penalties and reduced stakeholder trust.
+        requiredResources: []
+      - id: o1737645133075
+        text: I’m unsure of legal obligations in each country, delay notifications, miss
+          the 72-hour complaint deadline, risking penalties and insurance
+          issues.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Failure to notify and file complaints violates GDPR and jeopardizes
+          insurance coverage, severely impacting legal and financial outcomes.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737645164973
+        name: Notification Procedure
+        type: procedure
+        description: Detailed notification procedures for data protection authorities in
+          Germany, France, and the Netherlands.
+        required: false
+      - id: r1737645177504
+        name: Contacts for Competent Authorities
+        type: contact
+        description: Up-to-date contacts for competent authorities in each country.
+        required: false
+      - id: r1737645188422
+        name: Pre-Approved Notification and Complaint Templates
+        type: documentation
+        description: Pre-approved notification templates for data breach scenarios,
+          translated into relevant languages.
+        required: false
+      - id: r1737645229721
+        name: Inventory of Potentially Compromised Data
+        type: documentation
+        description: Regularly updated inventory of potentially compromised data.
+        required: false
+  - id: d1737645249482
+    text: >-
+      Business Continuity Management: Implementing Degraded Mode.
+
+      With PACS down, imaging centers must switch to degraded mode to manage
+      patient diagnostics, critical for life-saving procedures. Online
+      appointment systems are offline, and bookings are phone-only. How do you
+      organize degraded mode operations for imaging centers and appointment
+      management?
+    roleContext:
+      CEO: You validate major operational decisions.
+      CFO: You assess degraded mode costs and estimate losses versus normal
+        operations.
+      COO: You coordinate degraded mode procedure implementation.
+      CIO: You provide temporary alternative solutions for imaging.
+      CISO: You ensure temporary solutions introduce no new vulnerabilities.
+      HR Director: You address staff concerns about procedure changes.
+      CLO: You ensure degraded mode complies with legal obligations.
+      CCO: You prepare communication on procedure changes for patients and hospitals.
+    options:
+      - id: o1737645411600
+        text: I activate our detailed business continuity plan, deploying
+          pre-established manual procedures for diagnostic management and
+          patient bookings to ensure life-saving imaging continues.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Outstanding. Activating a detailed plan ensures imaging continuity,
+          protecting patient lives and maintaining operational stability.
+        requiredResources: []
+      - id: o1737645424503
+        text: I implement basic manual management procedures but realize some aspects
+          were not anticipated, causing operational challenges.
+        impact:
+          compliance: 50
+          stakeholder: 40
+          business: 50
+          time: 50
+        feedback: Basic procedures help, but gaps in planning cause delays in imaging,
+          risking patient safety and operational efficiency.
+        requiredResources: []
+      - id: o1737645436775
+        text: I lack a clear plan for operating without PACS, let each center manage
+          independently, and have no strategy for phone-only bookings, causing
+          chaos and patient loss to competitors.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Lack of a plan leads to chaotic operations, endangering patients and
+          driving them to competitors. A robust continuity plan is vital.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737645476450
+        name: Detailed Business Continuity Plan
+        type: procedure
+        description: Detailed plan for critical functions, prioritizing patient safety
+          and imaging continuity.
+        required: false
+      - id: r1737645497553
+        name: Emergency Kit for Each Imaging Center
+        type: documentation
+        description: Emergency kit with forms and tools for degraded mode diagnostics
+          and bookings.
+        required: false
+      - id: r1737645528653
+        name: Alternative Communication System
+        type: tool
+        description: System to coordinate actions between headquarters and imaging centers.
+        required: false
+      - id: r1737645579343
+        name: Call Center Continuity Procedure
+        type: procedure
+        description: Procedure to redirect online booking traffic to the call center in
+          degraded mode.
+        required: false
+  - id: d1737645650134
+    text: >-
+      Crisis Internal Communication Management:
+
+      The crisis team must establish an effective internal communication system
+      to coordinate actions and make rapid decisions to restore PACS and ensure
+      patient safety. How do you organize the crisis team’s internal
+      communication?
+    roleContext:
+      CEO: You ensure efficient decision-making for patient safety and IT recovery.
+      CFO: You track crisis costs and communicate with investors and insurers.
+      COO: You coordinate information from imaging centers.
+      CIO: You provide secure alternative communication tools.
+      CISO: You ensure crisis communications are secure.
+      HR Director: You ensure relevant information reaches employees.
+      CLO: You ensure sensitive communications remain confidential.
+      CCO: You establish a robust internal communication system.
+    options:
+      - id: o1737645784739
+        text: I set up a secure multi-channel communication system, including regular
+          conference calls, a real-time document-sharing platform, and an
+          instant messaging group for quick updates.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Excellent system. Multi-channel communication ensures rapid, secure
+          coordination, supporting PACS restoration and patient safety.
+        requiredResources: []
+      - id: o1737645796228
+        text: I organize regular calls and use email for updates, but realize critical
+          information is sometimes lost or miscommunicated.
+        impact:
+          compliance: 40
+          stakeholder: 50
+          business: 50
+          time: 50
+        feedback: Emails and calls are insufficient, leading to miscommunication that
+          delays PACS recovery and risks patient safety.
+        requiredResources: []
+      - id: o1737645809161
+        text: I rely on personal emails and ad hoc calls, leading to disorganized,
+          inefficient communication and delays in situation updates.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Disorganized communication hampers coordination, delaying critical
+          PACS restoration and endangering patients.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737645865637
+        name: Secure Crisis Communication Platform
+        type: tool
+        description: Secure platform accessible outside the corporate network for crisis
+          coordination.
+        required: false
+      - id: r1737645878947
+        name: Reporting and Progress Update Format
+        type: documentation
+        description: Protocol for update frequency and standardized situation report
+          templates.
+        required: false
+      - id: r1737645907172
+        name: Crisis Team Member List
+        type: contact
+        description: List of communication channel participants with roles and
+          responsibilities.
+        required: false
+  - id: d1737645976013
+    text: >-
+      Degraded Mode Payroll Management:
+
+      Month-end approaches, and the payroll system is inaccessible. Timely
+      salary payments are critical to maintain staff morale and imaging
+      operations. How do you ensure payroll without the payroll or time-tracking
+      system?
+    roleContext:
+      CEO: You validate the emergency payroll strategy.
+      CFO: You devise a solution for degraded mode payroll.
+      COO: You assess impacts if seasonal staff leave due to payment issues.
+      CIO: You provide alternative technical solutions or prior month data.
+      CISO: You ensure alternative solutions don’t compromise security.
+      HR Director: You coordinate with payroll and reassure employees.
+      CLO: You verify legal compliance of solutions.
+      CCO: You prepare employee communication on payroll.
+    options:
+      - id: o1737646137022
+        text: I activate our payroll continuity plan, using a secure copy of last
+          month’s payroll data and a validated manual process for adjustments,
+          coordinating with banks.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Great decision. A robust continuity plan ensures timely payroll,
+          maintaining staff morale and supporting imaging operations.
+        requiredResources: []
+      - id: o1737646146553
+        text: I propose paying everyone last month’s salary with later adjustments, but
+          realize this may cause issues for specific cases.
+        impact:
+          compliance: 60
+          stakeholder: 50
+          business: 50
+          time: 90
+        feedback: This approach maintains some stability, but overlooking specific cases
+          risks errors and staff dissatisfaction, impacting operations.
+        requiredResources: []
+      - id: o1737646169045
+        text: I lack a backup plan and suggest delaying payroll, risking a social crisis
+          alongside the technical one.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 30
+          time: 0
+        feedback: Delaying payroll creates a social crisis, undermining staff trust and
+          imaging operations, compounding the crisis.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646185203
+        name: Payroll Continuity Plan
+        type: procedure
+        description: Specific payroll continuity plan with validated manual salary
+          calculation and payment procedures.
+        required: false
+      - id: r1737646193766
+        name: Last Month’s Payroll Data Copy
+        type: documentation
+        description: Secure, up-to-date copy of last month’s payroll data, stored
+          outside the main system.
+        required: false
+      - id: r1737646219363
+        name: Emergency Transfer Contact List
+        type: contact
+        description: Bank contacts for emergency transfers.
+        required: false
+  - id: d1737646279282
+    text: >-
+      Managing a Surge in Patient Calls:
+
+      Following the attack’s public disclosure, call centers are overwhelmed by
+      patients and hospitals concerned about appointments and data security. How
+      do you manage the massive influx of patient calls to maintain trust and
+      support patient safety?
+    roleContext:
+      CEO: You decide on exceptional measures for the patient crisis.
+      CFO: You assess costs of emergency customer service measures.
+      COO: You manage the call surge while maintaining service quality.
+      CIO: You provide technical solutions to increase call handling capacity.
+      CISO: You ensure patient responses don’t compromise security.
+      HR Director: You mobilize additional staff for call handling.
+      CLO: You ensure patient responses comply with legal obligations.
+      CCO: You prepare talking points for customer service agents.
+    options:
+      - id: o1737646348033
+        text: I activate our client crisis management plan, deploying trained extra
+          staff, implementing a call triage system, and using alternative
+          channels like chatbots and online FAQs.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Excellent. A comprehensive plan effectively manages patient concerns,
+          maintaining trust and supporting operational stability.
+        requiredResources: []
+      - id: o1737646369916
+        text: I increase customer service staff and provide response scripts, but lack
+          effective alternative channels to handle call volume.
+        impact:
+          compliance: 50
+          stakeholder: 50
+          business: 50
+          time: 50
+        feedback: Adding staff helps, but without alternative channels, call volume
+          overwhelms, risking patient dissatisfaction and trust.
+        requiredResources: []
+      - id: o1737646381119
+        text: I lack a plan for such call volume and ask the call center to do their
+          best, leading to long wait times and unhappy patients.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: No plan leads to overwhelmed call centers, long wait times, and eroded
+          trust, exacerbating patient safety concerns.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646404693
+        name: Detailed Client Crisis Management Plan
+        type: procedure
+        description: Procedure with pre-approved scripts and talking points for patient
+          safety and data breach scenarios.
+        required: false
+      - id: r1737646436211
+        name: Alternative Communication Tools
+        type: tool
+        description: Alternative tools (chatbots, dynamic FAQs, messaging systems) and
+          call triage system for prioritizing urgent requests.
+        required: false
+  - id: d1737646481323
+    text: >-
+      Crisis Tracking and Documentation:
+
+      As the crisis continues, maintaining accurate tracking of actions and
+      decisions is vital for effective management, post-crisis analysis, and
+      patient safety. How do you ensure effective tracking and comprehensive
+      crisis documentation?
+    roleContext:
+      CEO: You ensure major decisions are properly documented.
+      CFO: You track and document all crisis-related costs.
+      COO: You coordinate documentation of operational actions.
+      CIO: You establish a system for tracking technical actions.
+      CISO: You document security and investigation details.
+      HR Director: You document staff impacts and HR actions.
+      CLO: You ensure documentation meets legal requirements.
+      CCO: You centralize information for internal and external communications.
+    options:
+      - id: o1737646540828
+        text: I establish a centralized crisis tracking system with a dedicated lead to
+          maintain a detailed log, regular synchronization meetings, and a
+          validation process for major decisions.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Great choice. A centralized system ensures comprehensive tracking,
+          supporting effective crisis management and patient safety.
+        requiredResources: []
+      - id: o1737646550822
+        text: I ask each crisis team member to keep an action log, but lack of
+          centralization makes it hard to maintain a cohesive overview.
+        impact:
+          compliance: 50
+          stakeholder: 50
+          business: 50
+          time: 50
+        feedback: Individual logs cause fragmentation, risking oversight and
+          inefficiencies in managing the crisis and patient safety.
+        requiredResources: []
+      - id: o1737646567419
+        text: I rely on individual notes and emails, leading to fragmented, incomplete
+          documentation and repeated actions due to lost information.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Fragmented documentation leads to confusion and errors, delaying
+          recovery efforts and compromising patient safety.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646612377
+        name: Centralized Crisis Management Tool
+        type: tool
+        description: Centralized tool for tracking actions and decisions with regular
+          backups.
+        required: false
+      - id: r1737646627092
+        name: Log-Keeping Procedure
+        type: procedure
+        description: Log-keeping procedure with standardized templates.
+        required: false
+      - id: r1737646641754
+        name: Synchronization Meeting Schedule
+        type: procedure
+        description: Synchronization meeting schedule with predefined agendas.
+        required: false
+      - id: r1737646658314
+        name: Major Decision Validation and Archiving Process
+        type: procedure
+        description: Validation and archiving process for major decisions.
+        required: false
+  - id: d1737646699555
+    text: >-
+      Emergency Resource Allocation:
+
+      The crisis requires immediate financial resources for incident management,
+      data recovery, and imaging center support to ensure patient safety. A
+      rapid decision on resource allocation is critical. How do you decide to
+      allocate emergency financial resources?
+    roleContext:
+      CEO: You authorize emergency fund releases.
+      CFO: You identify emergency funding sources in coordination with investors.
+      COO: You identify urgent operational needs for imaging centers.
+      CIO: You estimate technical recovery and rebuilding costs.
+      CISO: You assess resource needs for investigation and vulnerability fixes.
+      HR Director: You consider resource needs for employee support.
+      CLO: You evaluate resources needed for legal and regulatory compliance.
+      CCO: You assess resources for communication management.
+    options:
+      - id: o1737646841467
+        text: I authorize a substantial emergency budget based on a rapid but thorough
+          needs assessment, prioritizing PACS recovery, imaging center support,
+          and crisis communication.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Excellent decision. A thorough assessment ensures funds are allocated
+          effectively, prioritizing patient safety and PACS restoration.
+        requiredResources: []
+      - id: o1737646854050
+        text: I hesitate to commit significant expenses without detailed cost-benefit
+          analysis, despite the urgency.
+        impact:
+          compliance: 50
+          stakeholder: 50
+          business: 50
+          time: 50
+        feedback: Hesitation delays critical funding, slowing PACS recovery and risking
+          patient lives. A faster decision is needed.
+        requiredResources: []
+      - id: o1737646886791
+        text: I’m unsure how to quickly release funds for this unforeseen situation
+          during peak season and delay the decision.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: Delaying funding stalls recovery efforts, prolonging imaging downtime
+          and endangering patients. Swift action is critical.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737646900505
+        name: Emergency Expenditure Authorization Procedure
+        type: procedure
+        description: Emergency expenditure authorization procedure and contingency
+          budget for crises.
+        required: false
+      - id: r1737646910010
+        name: Pre-Approved Suppliers and Experts List
+        type: contact
+        description: List of pre-approved suppliers and experts (IT rebuilding, security
+          investigation, crisis communication, legal expertise).
+        required: false
+      - id: r1737646958411
+        name: Short- and Long-Term Financial Impact Analysis
+        type: documentation
+        description: Short- and long-term financial impact analysis.
+        required: false
+  - id: d1737647059792
+    text: >-
+      Recovery Plan:
+
+      With PACS offline, orchestrating rapid data and critical service
+      restoration for the 50 imaging centers is crucial to prevent
+      life-threatening delays in patient diagnostics. Each day of downtime
+      increases risks to patients and financial losses. How do you proceed with
+      the recovery plan?
+    roleContext:
+      CEO: You oversee the overall recovery plan.
+      CFO: You allocate financial resources for recovery.
+      COO: You prioritize operational recovery needs for imaging centers.
+      CIO: You lead the technical recovery effort.
+      CISO: You ensure recovery is secure and prevents further attacks.
+      HR Director: You manage staff needs for recovery, reallocating personnel as needed.
+      CLO: You ensure recovery complies with legal obligations.
+      CCO: You communicate recovery progress to stakeholders.
+    options:
+      - id: o1737647149047
+        text: I activate our detailed disaster recovery plan, prioritizing central PACS
+          restoration and deploying temporary solutions for each imaging center
+          while ensuring security.
+        impact:
+          compliance: 100
+          stakeholder: 100
+          business: 100
+          time: 100
+        feedback: Outstanding. A detailed plan prioritizes PACS restoration, ensuring
+          patient safety and minimizing downtime effectively.
+        requiredResources: []
+      - id: o1737647163463
+        text: I begin restoration but find some PACS backups are outdated or
+          inaccessible, complicating the process.
+        impact:
+          compliance: 70
+          stakeholder: 40
+          business: 40
+          time: 30
+        feedback: Starting restoration is good, but outdated or inaccessible backups
+          delay recovery, risking patient lives and prolonging downtime.
+        requiredResources: []
+      - id: o1737647175810
+        text: I lack a clear restoration plan for such a critical system, don’t know
+          where to start, and lose time. I’m unaware of backup history, former
+          vendors are unavailable, and backups were encrypted during the attack.
+        impact:
+          compliance: 0
+          stakeholder: 0
+          business: 0
+          time: 0
+        feedback: No plan leads to prolonged imaging downtime, endangering patients and
+          causing significant losses. A robust recovery plan is essential.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1737647248944
+        name: Backup Inventory and Restoration Procedures
+        type: procedure
+        description: Backup inventory and restoration procedures with data integrity
+          verification post-restoration.
+        required: false
+      - id: r1737647257997
+        name: Dedicated Recovery Technical Team
+        type: contact
+        description: Technical team dedicated to recovery, including PACS experts.
+        required: false
+      - id: r1737647277699
+        name: Isolated Test Environment for Data Validation
+        type: tool
+        description: Isolated test environment for validating restored data.
+        required: false
+      - id: r1737647294699
+        name: Prioritized Systems and Data Restoration List
+        type: documentation
+        description: Prioritized list of systems and data to restore (infrastructure,
+          data, third-party system links, and interdependencies).
+        required: false
+regulatoryRequirements: []
+prerequisites: []
+supportingDocuments: []

@@ -1,0 +1,368 @@
+id: scenario-cloud-dependency-failure-2025
+type: Cloud Dependency Failure
+title: Cloud Catastrophe at MediConnect Healthcare
+description: >
+  MediConnect Healthcare, a mid-sized provider operating 10 clinics across
+  Belgium, Luxembourg, and the Netherlands, relies heavily on Google Cloud
+  Platform (GCP) for its Electronic Health Record (EHR) system, patient
+  scheduling, and telemedicine services. On August 3, 2025, at 6:00 AM, the
+  production system grinds to a halt. The root cause: an expired credit card
+  tied to their GCP account, unnoticed for weeks. Worse, reactivating services
+  requires an MFA code sent to a phone lost two months ago by the former CFO.
+  With clinics opening in hours and patients en route, C-level executives must
+  navigate this cascading failure to restore critical systems and maintain care
+  delivery.
+industry:
+  - Healthcare
+  - Retail
+  - Technology
+companySize:
+  - Medium
+severity: High
+timeline:
+  - id: d1-discovery-and-panic
+    text: >
+      It’s 6:00 AM on August 3, 2025, a humid Monday morning in Brussels.
+      MediConnect’s IT team scrambles as alerts flood their dashboards: the EHR
+      system is offline, telemedicine calls drop, and patient schedules vanish.
+      The CIO traces the issue to GCP, where a billing suspension notice glares
+      back—payment failed due to an expired credit card, untouched since the old
+      CFO left in June. Clinics are due to open at 8:00 AM, and the first wave
+      of patients is already on their way. The CEO must decide how to kick off
+      the crisis response as panic ripples through the team. How do you launch
+      the response?
+    roleContext:
+      CEO: Your phone buzzes with urgent texts from the CIO and COO—time to lead.
+      CFO: Newly appointed, you’re mortified this slipped through during your
+        onboarding.
+      COO: You envision chaos at clinics without schedules or records.
+      CIO: You’ve pinpointed the GCP billing issue and dread the next revelation.
+      CISO: You’re on alert for security risks tied to service restoration.
+      HR Director: You brace for staff frustration as workloads spike.
+      CLO: You’re already thinking of contractual obligations with GCP.
+      CCO: You dread the patient backlash about to hit social media.
+    options:
+      - id: o1-activate-crisis
+        text: I trigger the crisis team immediately via our emergency protocol, pulling
+          everyone into a war room—virtual or physical.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Quick mobilization sets a proactive tone.
+        requiredResources: []
+      - id: o2-check-cio
+        text: I call the CIO for a full briefing before rallying the team, needing
+          clarity first.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 50
+        feedback: Delays the response but builds context.
+        requiredResources: []
+      - id: o3-freeze
+        text: I stall, overwhelmed by the absurdity of a credit card bringing us down.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 30
+        feedback: " Paralysis lets the crisis snowball."
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1-crisis-playbook
+        name: Crisis Response Playbook
+        type: procedure
+        description: Step-by-step guide to assemble the crisis team and assign roles.
+      - id: r1-comm-tool
+        name: Secure Communication Platform
+        type: tool
+        description: Encrypted tool for rapid team coordination, independent of GCP.
+  - id: d2-billing-nightmare
+    text: >
+      By 6:45 AM, the crisis team huddles in a tense video call—except the COO,
+      who’s pacing a clinic floor. The CIO logs into the GCP console, only to
+      hit a wall: updating the credit card demands an MFA code sent to a phone
+      number last seen in the former CFO’s hands, lost when he stormed out after
+      a heated exit. Clinics buzz with early staff arrivals, oblivious to the
+      ticking clock. Patients will soon demand answers. How do you tackle the
+      billing block?
+    roleContext:
+      CEO: You need a fix—fast—to calm rising tensions.
+      CFO: You curse your predecessor while digging for payment alternatives.
+      COO: You’re fielding calls from clinic managers begging for EHR access.
+      CIO: You’re racing to bypass the MFA snag with GCP support.
+      CISO: You worry about security if access controls weaken.
+      HR Director: You’re tracking down the ex-CFO’s last known whereabouts.
+      CLO: You scour the GCP contract for emergency clauses.
+      CCO: You’re drafting a holding message for patients.
+    options:
+      - id: o1-contact-gcp
+        text: I direct the CIO to escalate to GCP’s emergency support while the CFO
+          preps a new card.
+        impact:
+          compliance: 80
+          stakeholder: 70
+          business: 80
+          time: 70
+        feedback: Targets the root cause with urgency.
+        requiredResources: []
+      - id: o2-hunt-phone
+        text: I send HR to hunt for the old CFO or his phone, hoping for a miracle.
+        impact:
+          compliance: 50
+          stakeholder: 40
+          business: 50
+          time: 40
+        feedback: A long shot that wastes precious time.
+        requiredResources: []
+      - id: o3-wait
+        text: I wait for someone to figure it out, unsure who owns this mess.
+        impact:
+          compliance: 30
+          stakeholder: 20
+          business: 30
+          time: 20
+        feedback: Passivity deepens the chaos.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r2-gcp-contacts
+        name: GCP Emergency Contacts
+        type: contact
+        description: Direct lines to GCP’s billing and support teams.
+      - id: r2-payment-backup
+        name: Backup Payment Method
+        type: documentation
+        description: Pre-approved alternative card or account for SaaS payments.
+  - id: d3-manual-workaround
+    text: >
+      At 8:00 AM, clinics open to a flood of confused patients. Without EHR or
+      scheduling, staff scramble with pens and paper, squinting at faded backup
+      printouts from last week. Telemedicine screens stay black, and angry calls
+      pile up. GCP support confirms they’re working on it, but no ETA. The COO
+      pleads for a workable interim plan as waiting rooms overflow. How do you
+      manage operations in this degraded state?
+    roleContext:
+      CEO: You demand a practical workaround to keep clinics running.
+      CFO: You tally the cost of overtime and lost telemedicine revenue.
+      COO: You’re on the ground, rallying staff to makeshift processes.
+      CIO: You’re sidelined, unable to fix GCP but seeking local alternatives.
+      CISO: You warn against unsecured manual data handling.
+      HR Director: You’re pulling extra staff to cover the chaos.
+      CLO: You ensure manual records meet privacy laws.
+      CCO: You’re soothing patients via social media updates.
+    options:
+      - id: o1-deploy-plan
+        text: I activate our continuity plan, rolling out pre-tested manual processes
+          and extra staffing.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Restores order with minimal disruption.
+        requiredResources: []
+      - id: o2-improvise
+        text: I tell clinics to wing it with basic paper records, but it’s patchy.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: Keeps doors open but risks errors.
+        requiredResources: []
+      - id: o3-shutdown
+        text: I close non-critical clinics, overwhelmed by the lack of systems.
+        impact:
+          compliance: 40
+          stakeholder: 30
+          business: 40
+          time: 50
+        feedback: Drastic and damaging to trust.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r3-continuity-plan
+        name: Business Continuity Plan
+        type: procedure
+        description: Detailed manual workflows for EHR and scheduling outages.
+      - id: r3-backup-records
+        name: Offline Record Backups
+        type: documentation
+        description: Recent paper or local digital copies of patient data.
+  - id: d4-stakeholder-comms
+    text: >
+      By 10:00 AM, social media erupts with patient complaints: “MediConnect’s
+      down—where’s my appointment?” The CCO’s inbox overflows with media
+      queries, and staff morale plummets as they juggle irate visitors. GCP’s on
+      hold with “escalation in progress,” but the former CFO’s phone remains a
+      ghost. The CEO must decide how to address stakeholders—patients, staff,
+      and press—amid the storm. What’s your communication move?
+    roleContext:
+      CEO: You’re the face of this crisis—time to speak up.
+      CFO: You’re deflecting blame while funding damage control.
+      COO: You relay frontline struggles to shape the message.
+      CIO: You provide tech updates (or lack thereof) for accuracy.
+      CISO: You ensure no sensitive details leak in the chaos.
+      HR Director: You need staff to feel supported, not abandoned.
+      CLO: You vet statements for legal exposure.
+      CCO: You’re crafting a unified narrative under fire.
+    options:
+      - id: o1-proactive-msg
+        text: I issue a clear, honest statement via all channels, promising updates as
+          we fix it.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Builds trust with transparency.
+        requiredResources: []
+      - id: o2-delay-msg
+        text: I draft a vague holding statement, waiting for GCP resolution first.
+        impact:
+          compliance: 60
+          stakeholder: 50
+          business: 60
+          time: 60
+        feedback: Buys time but fuels speculation.
+        requiredResources: []
+      - id: o3-silence
+        text: I stay quiet, hoping it blows over without a peep.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 30
+          time: 40
+        feedback: Silence breeds distrust and rumors.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r4-comm-strategy
+        name: Crisis Communication Strategy
+        type: procedure
+        description: Pre-approved messaging templates for outages.
+      - id: r4-alt-channels
+        name: Alternative Communication Channels
+        type: tool
+        description: SMS and social media tools beyond GCP reliance.
+  - id: d5-vendor-pressure
+    text: >
+      Noon strikes, and the heat in Luxembourg clinics matches the tempers in
+      the war room. GCP support finally connects, but they demand manual
+      identity verification—documents, signatures, and a live call—since the MFA
+      phone’s a dead end. Patients are turned away, and a local news van parks
+      outside the Brussels clinic. The CEO must lean on the vendor or pivot. How
+      do you push GCP to restore services?
+    roleContext:
+      CEO: You’re ready to escalate to GCP’s top brass.
+      CFO: You’re juggling funds for potential legal action against GCP.
+      COO: You’re losing patience as clinics grind down.
+      CIO: You’re on the line with GCP, begging for a workaround.
+      CISO: You’re skeptical of rushed fixes compromising security.
+      HR Director: You’re calming staff who feel helpless.
+      CLO: You’re citing service-level agreements (SLAs) to GCP.
+      CCO: You’re prepping for worse headlines if this drags on.
+    options:
+      - id: o1-escalate-hard
+        text: I escalate to GCP’s executive level, citing SLAs and threatening legal
+          action.
+        impact:
+          compliance: 80
+          stakeholder: 70
+          business: 80
+          time: 70
+        feedback: Pressure speeds resolution but strains ties.
+        requiredResources: []
+      - id: o2-negotiate-soft
+        text: I plead with support for a temporary bypass, offering compliance later.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: Gentler but slower progress.
+        requiredResources: []
+      - id: o3-give-up
+        text: I abandon GCP efforts, looking for an overnight cloud switch.
+        impact:
+          compliance: 30
+          stakeholder: 20
+          business: 40
+          time: 30
+        feedback: Unrealistic pivot wastes time.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r5-sla-docs
+        name: GCP Service-Level Agreement
+        type: documentation
+        description: Contract detailing uptime and support obligations.
+      - id: r5-vendor-escalation
+        name: Vendor Escalation Contacts
+        type: contact
+        description: High-level GCP contacts for emergencies.
+  - id: d6-recovery-or-rebuild
+    text: >
+      At 3:00 PM, GCP restores partial access after a grueling verification
+      dance—EHR flickers back online, but telemedicine and scheduling lag. The
+      CIO warns that full recovery could take days, and backups are two weeks
+      old, risking data gaps. Patients and staff teeter on exhaustion, and the
+      CEO faces a fork: limp along with GCP or start a costly rebuild elsewhere.
+      What’s your recovery path?
+    roleContext:
+      CEO: You weigh short-term fixes against long-term stability.
+      CFO: You’re crunching numbers for recovery vs. migration costs.
+      COO: You need systems now, not next week, for patient care.
+      CIO: You’re torn between patching GCP or jumping ship.
+      CISO: You demand security audits before any move.
+      HR Director: You’re rallying staff for another tough shift.
+      CLO: You’re assessing liability if data’s lost.
+      CCO: You’re promising patients a return to normal—soon.
+    options:
+      - id: o1-patch-gcp
+        text: I stick with GCP, restoring from backups and bolstering billing
+          redundancy.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Pragmatic fix gets us back online.
+        requiredResources: []
+      - id: o2-hybrid-plan
+        text: I use GCP partially while prepping a gradual Azure shift.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 70
+          time: 60
+        feedback: Balanced but stretches resources thin.
+        requiredResources: []
+      - id: o3-abandon-gcp
+        text: I ditch GCP entirely, rushing to rebuild on Azure overnight.
+        impact:
+          compliance: 30
+          stakeholder: 20
+          business: 40
+          time: 30
+        feedback: Ambitious but reckless, risking collapse.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r6-backup-inventory
+        name: Backup Inventory
+        type: documentation
+        description: List of available system backups and their dates.
+      - id: r6-migration-plan
+        name: Cloud Migration Blueprint
+        type: procedure
+        description: Guide for switching providers in a crisis.
+regulatoryRequirements:
+  - Compliance with EU patient data protection laws during manual operations.
+prerequisites: []
+supportingDocuments: []

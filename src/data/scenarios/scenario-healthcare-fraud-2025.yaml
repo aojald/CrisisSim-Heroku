@@ -1,0 +1,444 @@
+id: scenario-healthcare-fraud-2025
+type: Financial Fraud
+title: Financial Scam at MediCare Europe
+description: >
+  MediCare Europe, a healthcare network with 20 hospitals across Belgium, Spain,
+  and the UK, faces a financial crisis on August 10, 2025. A key supplier,
+  MedTech Solutions, emails the finance team inquiring about a $1.2 million
+  payment for an invoice issued 90 days ago, claiming non-payment. Initial
+  checks reveal the payment was supposedly made, raising suspicions of fraud.
+  The scam threatens the company’s cash flow during a critical expansion phase,
+  with potential legal and reputational fallout. C-level executives must
+  investigate, contain the damage, and restore trust.
+industry:
+  - Healthcare
+  - Technology
+companySize:
+  - Large
+  - Medium
+  - Small
+severity: High
+timeline:
+  - id: d1-initial-discovery
+    text: >
+      On August 10, 2025, at 9:00 AM, the finance team receives an email from
+      MedTech Solutions inquiring about a $1.2 million payment for an invoice
+      from May 12, 2025. The supplier claims no funds were received, but records
+      show a payment was sent. Suspicions of fraud arise. How do you respond to
+      this discovery?
+    roleContext:
+      CEO: You’re briefed by the CFO and must decide on immediate action.
+      CFO: You suspect internal or external fraud and need to investigate.
+      COO: You worry about supplier relations and operational impacts.
+      CIO: You’re tasked with checking payment system security.
+      CISO: You assess if this is a cyber-enabled fraud (e.g., phishing).
+      HR Director: You consider staff involvement or training gaps.
+      CLO: You evaluate legal exposure and contract terms.
+      CCO: You brace for supplier and media inquiries.
+    options:
+      - id: o1-launch-investigation
+        text: I immediately convene the crisis team and launch an internal investigation
+          with IT and finance.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Prompt action sets a strong foundation.
+        requiredResources: []
+      - id: o2-contact-supplier
+        text: I contact the supplier first to verify details before escalating
+          internally.
+        impact:
+          compliance: 60
+          stakeholder: 70
+          business: 60
+          time: 60
+        feedback: Delays internal response but clarifies intent.
+        requiredResources: []
+      - id: o3-wait
+        text: I assume it’s a clerical error and delay action, awaiting more evidence.
+        impact:
+          compliance: 20
+          stakeholder: 30
+          business: 20
+          time: 40
+        feedback: Inaction risks further losses.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1-fraud-protocol
+        name: Fraud Response Protocol
+        type: procedure
+        description: Steps to initiate a financial fraud investigation.
+      - id: r1-contact-list
+        name: Emergency Contact List
+        type: contact
+        description: Key contacts for finance, IT, and suppliers.
+  - id: d2-investigation-scope
+    text: >
+      By 11:00 AM, the crisis team confirms the payment was sent to an account
+      not matching MedTech’s records. It’s likely a scam. How do you scope the
+      investigation?
+    roleContext:
+      CEO: You need a clear plan to lead the response.
+      CFO: You prioritize tracing the funds.
+      COO: You assess impacts on supplier trust for operations.
+      CIO: You investigate payment system vulnerabilities.
+      CISO: You suspect a compromised email or insider threat.
+      HR Director: You screen staff with payment access.
+      CLO: You prepare for potential litigation or reporting duties.
+      CCO: You plan messaging to stakeholders.
+    options:
+      - id: o1-full-audit
+        text: I order a forensic audit of all payments and systems over the past 6
+          months.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 70
+        feedback: Thorough but time-intensive.
+        requiredResources: []
+      - id: o2-limited-check
+        text: I focus only on this transaction, relying on existing logs.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 80
+        feedback: Faster but risks missing broader fraud.
+        requiredResources: []
+      - id: o3-defer
+        text: I wait for more supplier input before scoping, stalling progress.
+        impact:
+          compliance: 30
+          stakeholder: 40
+          business: 30
+          time: 50
+        feedback: Delays expose further vulnerabilities.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r2-forensic-tools
+        name: Forensic Accounting Tools
+        type: tool
+        description: Software for tracing fraudulent transactions.
+      - id: r2-payment-logs
+        name: Payment System Logs
+        type: documentation
+        description: Detailed records of all financial transactions.
+  - id: d3-bank-notification
+    text: >
+      At 1:00 PM, the audit reveals the $1.2 million was wired to a fraudulent
+      account in Eastern Europe. Time is critical to recover funds. Do you
+      notify the bank?
+    roleContext:
+      CEO: You authorize financial recovery steps.
+      CFO: You lead bank negotiations to freeze funds.
+      COO: You ensure operational cash flow isn’t disrupted.
+      CIO: You provide transaction data to the bank.
+      CISO: You check for additional compromised accounts.
+      HR Director: You monitor staff morale amid scrutiny.
+      CLO: You assess legal obligations to report fraud.
+      CCO: You prepare to explain delays to suppliers.
+    options:
+      - id: o1-notify-now
+        text: I notify the bank immediately with all evidence to freeze the funds.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Maximizes recovery chances.
+        requiredResources: []
+      - id: o2-delay-bank
+        text: I gather more evidence before notifying, risking fund dispersal.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: Cautious but less effective.
+        requiredResources: []
+      - id: o3-no-bank
+        text: I avoid notifying, hoping to resolve internally.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 40
+        feedback: Funds are likely lost.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r3-bank-contacts
+        name: Bank Emergency Contacts
+        type: contact
+        description: Direct lines to bank fraud departments.
+      - id: r3-fraud-report
+        name: Fraud Reporting Template
+        type: documentation
+        description: Pre-formatted report for bank submissions.
+  - id: d4-regulatory-reporting
+    text: >
+      By 3:00 PM, the scam’s scale suggests a breach of EU financial
+      regulations. Reporting may be required within 24 hours. How do you handle
+      regulatory obligations?
+    roleContext:
+      CEO: You approve reporting decisions.
+      CFO: You calculate fines and recovery impacts.
+      COO: You ensure operations continue amid scrutiny.
+      CIO: You provide IT evidence for regulators.
+      CISO: You report potential cyber vulnerabilities.
+      HR Director: You manage staff implicated in reporting.
+      CLO: You lead compliance with EU laws (e.g., AMLD).
+      CCO: You prepare public statements if leaks occur.
+    options:
+      - id: o1-report-now
+        text: I report to regulators in Belgium, Spain, and the UK with full details.
+        impact:
+          compliance: 80
+          stakeholder: 70
+          business: 80
+          time: 80
+        feedback: Meets legal duties, though scrutiny rises.
+        requiredResources: []
+      - id: o2-partial-report
+        text: I report minimally, awaiting more data, risking non-compliance.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: Reduces immediate pressure but risks fines.
+        requiredResources: []
+      - id: o3-no-report
+        text: I delay reporting, hoping to recover funds first.
+        impact:
+          compliance: 20
+          stakeholder: 30
+          business: 20
+          time: 40
+        feedback: Violates regulations, inviting penalties.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r4-reg-guide
+        name: EU Regulatory Guide
+        type: procedure
+        description: Steps for AMLD and fraud reporting.
+      - id: r4-reg-contacts
+        name: Regulatory Contacts
+        type: contact
+        description: Authorities in Belgium, Spain, and UK.
+  - id: d5-supplier-communication
+    text: >
+      At 5:00 PM, MedTech Solutions threatens to halt critical supplies (e.g.,
+      ventilators) unless payment is clarified. How do you communicate with the
+      supplier?
+    roleContext:
+      CEO: You validate the communication strategy.
+      CFO: You negotiate payment terms or delays.
+      COO: You prioritize supply chain continuity.
+      CIO: You ensure communication channels are secure.
+      CISO: You verify the supplier’s email authenticity.
+      HR Director: You support staff handling supplier talks.
+      CLO: You review contract breach risks.
+      CCO: You craft a clear supplier message.
+    options:
+      - id: o1-transparent
+        text: I disclose the fraud, promise swift resolution, and negotiate interim
+          terms.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Builds trust and secures supplies.
+        requiredResources: []
+      - id: o2-vague
+        text: I give a vague update, delaying specifics, risking distrust.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 60
+        feedback: Buys time but strains relations.
+        requiredResources: []
+      - id: o3-ignore
+        text: I ignore the supplier, focusing internally, risking supply cuts.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 40
+        feedback: Jeopardizes critical operations.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r5-comm-plan
+        name: Crisis Communication Plan
+        type: procedure
+        description: Templates for supplier updates.
+      - id: r5-supplier-contract
+        name: Supplier Contract Terms
+        type: documentation
+        description: Details on payment and supply obligations.
+  - id: d6-staff-screening
+    text: >
+      By 7:00 PM, evidence suggests an insider may have facilitated the scam via
+      a phishing email. Do you screen staff with payment access?
+    roleContext:
+      CEO: You decide on staff investigations.
+      CFO: You identify staff with financial authority.
+      COO: You ensure operations aren’t disrupted by screening.
+      CIO: You trace email logs for phishing evidence.
+      CISO: You lead the insider threat analysis.
+      HR Director: You manage staff screening and morale.
+      CLO: You ensure screening complies with labor laws.
+      CCO: You prepare for staff-related leaks.
+    options:
+      - id: o1-screen-now
+        text: I screen all relevant staff discreetly with HR and IT support.
+        impact:
+          compliance: 80
+          stakeholder: 70
+          business: 80
+          time: 80
+        feedback: Identifies risks while minimizing disruption.
+        requiredResources: []
+      - id: o2-limited-screen
+        text: I screen only key staff, potentially missing accomplices.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 70
+        feedback: Faster but incomplete.
+        requiredResources: []
+      - id: o3-no-screen
+        text: I avoid screening, fearing staff backlash.
+        impact:
+          compliance: 20
+          stakeholder: 30
+          business: 20
+          time: 50
+        feedback: Leaves vulnerabilities unchecked.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r6-insider-policy
+        name: Insider Threat Policy
+        type: procedure
+        description: Guidelines for staff fraud investigations.
+      - id: r6-email-logs
+        name: Email Audit Logs
+        type: documentation
+        description: Records to trace phishing attempts.
+  - id: d7-financial-contingency
+    text: >
+      At 9:00 PM, the bank freezes $800,000, but $400,000 is unrecoverable. Cash
+      flow is strained during expansion. How do you manage finances?
+    roleContext:
+      CEO: You approve contingency funding.
+      CFO: You secure emergency funds or cuts.
+      COO: You prioritize operational spending.
+      CIO: You assess IT costs to prevent recurrence.
+      CISO: You budget for security upgrades.
+      HR Director: You address payroll concerns.
+      CLO: You review insurance claims for fraud.
+      CCO: You update investors on financial health.
+    options:
+      - id: o1-secure-funds
+        text: I tap reserves and insurance to cover losses and maintain operations.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 80
+        feedback: Stabilizes finances effectively.
+        requiredResources: []
+      - id: o2-cut-costs
+        text: I cut non-essential spending, risking expansion delays.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 70
+        feedback: Preserves cash but slows growth.
+        requiredResources: []
+      - id: o3-no-action
+        text: I hope for full recovery, risking cash shortages.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 40
+        feedback: Endangers operations.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r7-contingency-plan
+        name: Financial Contingency Plan
+        type: procedure
+        description: Steps to access emergency funds.
+      - id: r7-insurance-policy
+        name: Fraud Insurance Policy
+        type: documentation
+        description: Coverage details for financial scams.
+  - id: d8-prevention-measures
+    text: >
+      By midnight, the crisis stabilizes, but vulnerabilities remain. How do you
+      prevent future scams?
+    roleContext:
+      CEO: You set the prevention strategy.
+      CFO: You fund anti-fraud measures.
+      COO: You ensure operational integration of new controls.
+      CIO: You upgrade payment system security.
+      CISO: You implement anti-phishing training.
+      HR Director: You roll out staff education.
+      CLO: You ensure compliance with new measures.
+      CCO: You communicate improvements to stakeholders.
+    options:
+      - id: o1-comprehensive
+        text: I overhaul payment controls, train staff, and enhance IT security.
+        impact:
+          compliance: 80
+          stakeholder: 80
+          business: 80
+          time: 70
+        feedback: Robust prevention reduces future risk.
+        requiredResources: []
+      - id: o2-basic-fix
+        text: I add basic two-factor authentication, leaving gaps.
+        impact:
+          compliance: 60
+          stakeholder: 60
+          business: 60
+          time: 80
+        feedback: Quick but insufficient.
+        requiredResources: []
+      - id: o3-no-change
+        text: I make no changes, assuming this was a one-off.
+        impact:
+          compliance: 20
+          stakeholder: 20
+          business: 20
+          time: 50
+        feedback: Invites repeat incidents.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r8-security-tools
+        name: Enhanced Security Tools
+        type: tool
+        description: Multi-factor authentication and fraud detection software.
+      - id: r8-training-program
+        name: Anti-Fraud Training Program
+        type: procedure
+        description: Staff education on phishing and fraud risks.
+regulatoryRequirements:
+  - EU Anti-Money Laundering Directive (AMLD) compliance for fraud reporting.
+prerequisites: []
+supportingDocuments: []
