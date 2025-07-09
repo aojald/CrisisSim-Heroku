@@ -6,6 +6,7 @@ export default defineConfig(({ command, mode }) => {
   
   return {
     plugins: [react()],
+    base: '/',
     define: {
       global: 'globalThis',
     },
@@ -38,12 +39,17 @@ export default defineConfig(({ command, mode }) => {
       outDir: 'dist',
       sourcemap: false,
       minify: 'terser',
+      assetsDir: 'assets',
+      emptyOutDir: true,
       rollupOptions: {
         output: {
           manualChunks: {
             vendor: ['react', 'react-dom'],
             utils: ['lucide-react', 'socket.io-client']
-          }
+          },
+          assetFileNames: 'assets/[name]-[hash][extname]',
+          chunkFileNames: 'assets/[name]-[hash].js',
+          entryFileNames: 'assets/[name]-[hash].js'
         }
       }
     }
