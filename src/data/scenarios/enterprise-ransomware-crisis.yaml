@@ -1,7 +1,7 @@
 # Enterprise-Wide Ransomware Attack with Data Exfiltration
 type: Ransomware
 id: ransomware-crisis-001
-title: Critical Infrastructure Ransomware Crisis
+title: [Small][generic] - Critical Infrastructure Ransomware Crisis
 description: >-
   A sophisticated ransomware group has launched a coordinated attack against the organization's
   critical business applications. The attack has encrypted core systems and exfiltrated sensitive
