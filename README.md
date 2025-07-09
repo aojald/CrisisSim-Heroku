@@ -89,6 +89,74 @@ npm run dev:vite
 - `npm run lint` - Run ESLint
 - `npm run test` - Run tests
 
+## 🚀 Deployment to Heroku
+
+### Prerequisites
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
+- Heroku account
+- Git repository initialized
+
+### Option 1: One-Click Deploy
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+### Option 2: Manual Deployment
+
+1. **Login to Heroku**
+   ```bash
+   heroku login
+   ```
+
+2. **Create a new Heroku app**
+   ```bash
+   heroku create your-app-name
+   ```
+
+3. **Set environment variables**
+   ```bash
+   heroku config:set NODE_ENV=production
+   ```
+
+4. **Deploy the application**
+   ```bash
+   git add .
+   git commit -m "Deployment to Heroku"
+   git push heroku main
+   ```
+
+5. **Verify deployment**
+   ```bash
+   heroku open
+   ```
+
+### Troubleshooting Heroku Deployment
+
+If you encounter the error `TypeError: Missing parameter name at 1: https://git.new/pathToRegexpError`, it's likely due to a dependency issue with path-to-regexp. Try these solutions:
+
+1. **Pin express version in package.json**
+   ```json
+   "express": "5.0.0-beta.1"
+   ```
+
+2. **Update dependencies**
+   ```bash
+   npm update express path-to-regexp
+   ```
+
+3. **Check for path patterns**
+   Ensure all Express route patterns are correctly formatted without invalid characters.
+
+4. **Verify Procfile**
+   Make sure your Procfile contains:
+   ```
+   web: node server/index.js
+   ```
+
+5. **Check logs for specific errors**
+   ```bash
+   heroku logs --tail
+   ```
+
 ## 🎮 How to Use
 
 ### Single Player Mode
