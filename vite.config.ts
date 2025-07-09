@@ -36,27 +36,14 @@ export default defineConfig(({ command, mode }) => {
     },
     build: {
       outDir: 'dist',
-      sourcemap: mode === 'production' ? false : true,
-      minify: mode === 'production' ? 'terser' : false,
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-        mangle: {
-          safari10: true,
-        },
-      },
+      sourcemap: false,
+      minify: 'terser',
       rollupOptions: {
-        external: [],
         output: {
           manualChunks: {
             vendor: ['react', 'react-dom'],
             utils: ['lucide-react', 'socket.io-client']
-          },
-          chunkFileNames: 'assets/[name]-[hash].js',
-          entryFileNames: 'assets/[name]-[hash].js',
-          assetFileNames: 'assets/[name]-[hash].[ext]'
+          }
         }
       }
     }

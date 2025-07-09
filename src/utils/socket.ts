@@ -41,14 +41,22 @@ class SocketClient extends EventEmitter {
 
         this.cleanup(); // Clean up any existing socket
 
-        this.socket = io('/', {
+        // Use current origin for production, localhost for development
+        const socketUrl = process.env.NODE_ENV === 'production' 
+          ? window.location.origin 
+          : 'http://localhost:3001';
+        
+        debug(`Connecting to socket server at: ${socketUrl}`);
+        
+        this.socket = io(socketUrl, {
           transports: ['websocket', 'polling'],
           reconnection: true,
           reconnectionAttempts: 5,
           reconnectionDelay: 1000,
           timeout: 5000,
           path: '/socket.io',
-          autoConnect: true
+          autoConnect: true,
+          forceNew: true
         });
 
         this.socket.on('connect', () => {

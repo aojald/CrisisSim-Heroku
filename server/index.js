@@ -46,6 +46,9 @@ app.get('/health', (req, res) => {
 // Create HTTP server with Express app
 const server = createServer(app);
 
+// Get port from environment or default to 3001
+const PORT = process.env.PORT || 3001;
+
 // Create Socket.IO server with proper CORS
 const io = new Server(server, {
   cors: {
@@ -546,9 +549,20 @@ io.on('connection', (socket) => {
   });
 });
 
-// Start server
-const PORT = process.env.PORT || 3001;
+// Start server with proper error handling
 server.listen(PORT, '0.0.0.0', () => {
   debug(`Socket.IO server is running on port ${PORT}`);
   debug(`Environment: ${process.env.NODE_ENV || 'development'}`);
+}).on('error', (err) => {
+  console.error('Server failed to start:', err);
+  process.exit(1);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  debug('SIGTERM received, shutting down gracefully');
+  server.close(() => {
+    debug('Process terminated');
+    process.exit(0);
+  });
 });
