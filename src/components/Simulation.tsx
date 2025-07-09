@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSimulation } from '../context/SimulationContext';
+import { useNotifications } from '../context/NotificationContext';
 import { AlertTriangle, Clock, CheckCircle, AlertCircle, ThumbsUp, HelpCircle, Users, Zap } from 'lucide-react';
 import DecisionTree from './DecisionTree';
 import ResourceCheck from './ResourceCheck';
@@ -23,6 +24,7 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export default function Simulation() {
   const { state, dispatch } = useSimulation();
+  const { unreadCount } = useNotifications();
   const [timeLeft, setTimeLeft] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [confidenceRating, setConfidenceRating] = useState<ConfidenceLevel | null>(null);
@@ -314,11 +316,16 @@ export default function Simulation() {
             {!isSinglePlayer && (
               <button
                 onClick={() => setShowPlayerDashboard(!showPlayerDashboard)}
-                className="flex items-center px-3 py-2 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow-sm hover:bg-green-700 dark:hover:bg-green-600 transition-colors"
+                className="flex items-center px-3 py-2 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow-sm hover:bg-green-700 dark:hover:bg-green-600 transition-colors relative"
                 title="Team Chat"
               >
                 <Users className="w-4 h-4" />
                 <span className="hidden lg:inline ml-2">Chat</span>
+                {unreadCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
+                    {unreadCount > 9 ? '9+' : unreadCount}
+                  </span>
+                )}
               </button>
             )}
 

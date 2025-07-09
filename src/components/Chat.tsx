@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSimulation } from '../context/SimulationContext';
+import { useNotifications } from '../context/NotificationContext';
 import { MessageSquare, Send, X } from 'lucide-react';
 import wsClient, { debug } from '../utils/socket';
 
@@ -18,6 +19,7 @@ interface ChatProps {
 
 export default function Chat({ showPlayerDashboard }: ChatProps) {
   const { state } = useSimulation();
+  const { addUnreadMessage, clearUnreadMessages } = useNotifications();
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -31,6 +33,13 @@ export default function Chat({ showPlayerDashboard }: ChatProps) {
     scrollToBottom();
   }, [messages]);
 
+  // Clear unread messages when chat becomes visible
+  useEffect(() => {
+    if (showPlayerDashboard) {
+      clearUnreadMessages();
+    }
+  }, [showPlayerDashboard, clearUnreadMessages]);
+
   // Listen for chat messages from other players
   useEffect(() => {
     const handleChatMessage = (data: any) => {
@@ -40,6 +49,12 @@ export default function Chat({ showPlayerDashboard }: ChatProps) {
           // Avoid duplicate messages
           const exists = prev.some(msg => msg.id === data.message.id);
           if (exists) return prev;
+          
+          // If message is from another player and chat is not visible, increment unread count
+          if (data.message.playerId !== currentPlayer?.id && !showPlayerDashboard) {
+            addUnreadMessage();
+          }
+          
           return [...prev, data.message];
         });
       }
@@ -51,7 +66,7 @@ export default function Chat({ showPlayerDashboard }: ChatProps) {
     return () => {
       wsClient.off('chat_message', handleChatMessage);
     };
-  }, []);
+  }, [currentPlayer?.id, showPlayerDashboard, addUnreadMessage]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
