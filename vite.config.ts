@@ -56,7 +56,6 @@ export default defineConfig(({ command, mode }) => {
           chunkFileNames: 'assets/[name]-[hash].js',
           entryFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]'
-          }
         }
       }
     }
