@@ -1,0 +1,38 @@
+{
+  "name": "Executive Cyber Crisis Simulator",
+  "description": "A comprehensive crisis management simulation platform for executive training",
+  "repository": "https://github.com/your-username/cyber-crisis-simulator",
+  "logo": "https://via.placeholder.com/200x200/2563eb/ffffff?text=ECCS",
+  "keywords": ["crisis-management", "cybersecurity", "simulation", "training", "executive"],
+  "stack": "heroku-22",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-redis:mini",
+      "as": "REDIS"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Skip dev dependencies during build",
+      "value": "false"
+    }
+  },
+  "scripts": {
+    "postdeploy": "echo 'Deployment completed successfully'"
+  }
+}

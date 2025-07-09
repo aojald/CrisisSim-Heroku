@@ -1,0 +1,84 @@
+# Critical Infrastructure Ransomware Attack
+type: Ransomware
+id: ransomware-1
+title: Critical Infrastructure Ransomware Attack
+description: A sophisticated ransomware attack has encrypted critical business systems and customer data. The attackers are demanding $200M in cryptocurrency.
+industry: 
+  - Technology
+  - Healthcare
+  - Finance
+companySize:
+  - Medium
+  - Large
+severity: Critical
+
+timeline:
+  - id: d1
+    text: IT team reports complete encryption of critical systems. Initial ransom demand received. How do you proceed?
+    timeLimit: 300
+    roleContext:
+      CEO: As CEO, your decision will set the tone for the entire response and impact stakeholder confidence.
+      CFO: As CFO, consider the financial implications of both paying ransom and recovery costs.
+      COO: As COO, focus on maintaining critical business operations during the incident.
+      CIO: As CIO, evaluate technical recovery options and infrastructure impact.
+      CISO: As CISO, assess the attack vector and potential for additional compromises.
+      HR Director: As HR Director, prepare for potential employee communications and work disruptions.
+      CLO: As CLO, consider legal implications and regulatory reporting requirements.
+    options:
+      - id: o1
+        text: Immediately engage incident response team and notify law enforcement
+        impact:
+          compliance: 90
+          stakeholder: 85
+          business: 75
+          time: 80
+        feedback: Excellent choice. Quick engagement of IR team and law enforcement is critical for proper incident handling and potential criminal investigation.
+        requiredResources:
+          - id: ir-plan
+            name: Incident Response Plan
+            type: procedure
+            description: Documented procedures for handling cyber incidents
+            required: true
+          - id: law-contacts
+            name: Law Enforcement Contacts
+            type: contact
+            description: Contact information for relevant law enforcement agencies
+            required: true
+      - id: o2
+        text: Begin negotiation with attackers while assessing damage
+        impact:
+          compliance: 40
+          stakeholder: 30
+          business: 50
+          time: 60
+        feedback: Negotiating with attackers without proper assessment and notification could violate regulatory requirements and compromise investigation.
+        requiredResources:
+          - id: crypto-wallet
+            name: Cryptocurrency Wallet
+            type: tool
+            description: Means to pay ransom if decided
+            required: false
+    requiredResources:
+      - id: ir-plan
+        name: Incident Response Plan
+        type: procedure
+        description: Documented procedures for handling cyber incidents
+        required: true
+
+regulatoryRequirements:
+  - Data breach notification within 72 hours
+  - Maintain detailed incident logs
+  - Preserve evidence for investigation
+  - Document recovery procedures
+  - Report to relevant authorities
+
+prerequisites:
+  - Incident Response Plan
+  - Business Continuity Plan
+  - Cyber Insurance Policy
+
+supportingDocuments:
+  - id: ir-plan
+    title: Incident Response Plan
+    url: https://example.com/ir-plan
+    type: pdf

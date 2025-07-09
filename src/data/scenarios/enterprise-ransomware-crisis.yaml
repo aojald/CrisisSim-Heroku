@@ -1,0 +1,353 @@
+# Enterprise-Wide Ransomware Attack with Data Exfiltration
+type: Ransomware
+id: ransomware-crisis-001
+title: Critical Infrastructure Ransomware Crisis
+description: >-
+  A sophisticated ransomware group has launched a coordinated attack against the organization's
+  critical business applications. The attack has encrypted core systems and exfiltrated sensitive
+  data, including customer PII and intellectual property. The attackers are demanding $10M in
+  cryptocurrency, threatening to leak the data if not paid within 72 hours. Multiple business
+  units are affected, and customer-facing services are offline.
+
+industry:
+  - Technology
+  - Healthcare
+  - Finance
+companySize:
+  - Large
+  - Enterprise
+severity: Critical
+
+timeline:
+  - id: d1
+    text: >-
+      Security monitoring systems have detected widespread encryption of critical systems
+      and unusual data egress. Initial ransom demand received. How do you proceed with
+      immediate response?
+    timeLimit: 300
+    roleContext:
+      CEO: Your initial response sets the tone for the entire crisis and impacts stakeholder confidence
+      CFO: Consider immediate financial implications and cyber insurance coverage
+      COO: Critical business operations are at risk; continuity is paramount
+      CIO: Technical infrastructure is compromised; assess damage scope
+      CISO: Security breach requires immediate containment and investigation
+      HR Director: Employee systems are affected; workforce needs guidance
+      CLO: Multiple regulatory obligations are triggered
+      CCO: Crisis may become public; reputation at stake
+    requiredResources:
+      - id: ir-plan
+        name: Incident Response Plan
+        type: procedure
+        description: Formal IR procedures and playbooks
+        required: true
+      - id: ir-team
+        name: External IR Team Contact
+        type: contact
+        description: Pre-contracted incident response team
+        required: true
+      - id: cyber-insurance
+        name: Cyber Insurance Policy
+        type: documentation
+        description: Insurance coverage details and contact information
+        required: false
+    options:
+      - id: o1
+        text: Activate full incident response plan and engage external IR team
+        impact:
+          compliance: 95
+          stakeholder: 85
+          business: 80
+          time: 90
+        feedback: Optimal response ensuring comprehensive incident handling and compliance
+        requiredResources: []
+      - id: o2
+        text: Begin ransom negotiations while assessing damage
+        impact:
+          compliance: 40
+          stakeholder: 30
+          business: 60
+          time: 70
+        feedback: Premature negotiation before assessment risks compliance and investigation
+        requiredResources: []
+      - id: o3
+        text: Focus on system restoration from backups
+        impact:
+          compliance: 60
+          stakeholder: 50
+          business: 75
+          time: 65
+        feedback: Recovery is important but must be coordinated with investigation
+        requiredResources: []
+
+  - id: d2
+    text: >-
+      Initial assessment confirms active adversary presence in the network. Some systems
+      remain unencrypted. How do you approach containment?
+    timeLimit: 240
+    roleContext:
+      CEO: Balance between business continuity and security is crucial
+      CFO: Containment actions will impact revenue streams
+      COO: Operations need minimum viable systems
+      CIO: Network segmentation decisions required
+      CISO: Prevent further system compromise
+      HR Director: Remote work capabilities affected
+      CLO: Evidence preservation is critical
+      CCO: Service disruption requires communication
+    requiredResources:
+      - id: bcp
+        name: Business Continuity Plan
+        type: procedure
+        description: Procedures for operating during outage
+        required: true
+      - id: network-diagram
+        name: Network Architecture Diagram
+        type: documentation
+        description: Current network topology and segmentation
+        required: true
+      - id: siem
+        name: SIEM Access
+        type: tool
+        description: Security monitoring platform
+        required: false
+    options:
+      - id: o1
+        text: Complete network shutdown for full containment
+        impact:
+          compliance: 90
+          stakeholder: 60
+          business: 30
+          time: 85
+        feedback: Maximum security but severe business impact
+        requiredResources: []
+      - id: o2
+        text: Selective containment of affected systems
+        impact:
+          compliance: 80
+          stakeholder: 75
+          business: 70
+          time: 75
+        feedback: Balanced approach requiring careful execution
+        requiredResources: []
+      - id: o3
+        text: Keep systems online with enhanced monitoring
+        impact:
+          compliance: 40
+          stakeholder: 80
+          business: 85
+          time: 50
+        feedback: High risk of further compromise
+        requiredResources: []
+
+  - id: d3
+    text: >-
+      Forensics team has identified the attack vector and confirms sensitive data exfiltration.
+      How do you handle the data breach aspect?
+    timeLimit: 360
+    roleContext:
+      CEO: Data breach adds significant complexity to the crisis
+      CFO: Consider costs of breach notification and monitoring
+      COO: Impact assessment on business processes needed
+      CIO: Data inventory and access logs required
+      CISO: Breach scope and impact analysis critical
+      HR Director: Employee data may be compromised
+      CLO: Multiple breach notification requirements
+      CCO: Data breach communication strategy needed
+    requiredResources:
+      - id: comm-plan
+        name: Crisis Communication Plan
+        type: procedure
+        description: Communication procedures and templates
+        required: true
+      - id: data-inventory
+        name: Data Classification Inventory
+        type: documentation
+        description: Inventory of affected data
+        required: true
+      - id: legal-team
+        name: Legal Team Contact
+        type: contact
+        description: Internal/external legal counsel contacts
+        required: false
+    options:
+      - id: o1
+        text: Immediate public disclosure of the breach
+        impact:
+          compliance: 90
+          stakeholder: 70
+          business: 60
+          time: 85
+        feedback: Transparent but may complicate investigation
+        requiredResources: []
+      - id: o2
+        text: Limited disclosure to affected parties only
+        impact:
+          compliance: 75
+          stakeholder: 80
+          business: 75
+          time: 70
+        feedback: Balanced approach but risks information leaks
+        requiredResources: []
+      - id: o3
+        text: Delay disclosure pending full investigation
+        impact:
+          compliance: 30
+          stakeholder: 40
+          business: 80
+          time: 40
+        feedback: High compliance risk and potential reputation damage
+        requiredResources: []
+
+  - id: d4
+    text: >-
+      72-hour deadline approaching. Attackers have provided proof of sensitive data.
+      How do you proceed with the ransom demand?
+    timeLimit: 300
+    roleContext:
+      CEO: Decision impacts company policy and precedent
+      CFO: Evaluate financial impact of payment vs. recovery
+      COO: Business impact of data leak needs assessment
+      CIO: Technical recovery capabilities are key
+      CISO: Consider attacker credibility and capabilities
+      HR Director: Employee morale and security concerns
+      CLO: Legal implications of ransom payment
+      CCO: Public perception of decision crucial
+    requiredResources:
+      - id: recovery-plan
+        name: Recovery Plan
+        type: procedure
+        description: Detailed system recovery procedures
+        required: true
+      - id: legal-counsel
+        name: Legal Counsel
+        type: contact
+        description: Specialized cybersecurity legal advice
+        required: true
+      - id: crypto-wallet
+        name: Cryptocurrency Account
+        type: tool
+        description: Means to pay ransom
+        required: false
+    options:
+      - id: o1
+        text: Refuse payment and focus on recovery/mitigation
+        impact:
+          compliance: 85
+          stakeholder: 60
+          business: 50
+          time: 70
+        feedback: Strong stance but requires robust recovery capability
+        requiredResources: []
+      - id: o2
+        text: Negotiate with attackers while preparing for leak
+        impact:
+          compliance: 60
+          stakeholder: 70
+          business: 65
+          time: 75
+        feedback: Buys time but may not prevent data leak
+        requiredResources: []
+      - id: o3
+        text: Pay ransom to prevent data leak
+        impact:
+          compliance: 40
+          stakeholder: 75
+          business: 80
+          time: 85
+        feedback: Quick resolution but encourages future attacks
+        requiredResources: []
+
+  - id: d5
+    text: >-
+      System recovery efforts are underway, but critical customer-facing services remain offline.
+      How do you prioritize service restoration?
+    timeLimit: 240
+    roleContext:
+      CEO: Service restoration priorities affect multiple stakeholders
+      CFO: Revenue impact of service prioritization
+      COO: Operational dependencies need consideration
+      CIO: Technical resources are limited
+      CISO: Secure restoration is essential
+      HR Director: Staff allocation and overtime needed
+      CLO: Service level agreements at risk
+      CCO: Customer communication strategy required
+    requiredResources:
+      - id: service-catalog
+        name: Service Catalog
+        type: documentation
+        description: Prioritized list of services
+        required: true
+      - id: security-checklist
+        name: Security Restoration Checklist
+        type: procedure
+        description: Security verification procedures
+        required: true
+      - id: dr-plan
+        name: Disaster Recovery Plan
+        type: procedure
+        description: Recovery procedures and alternatives
+        required: true
+    options:
+      - id: o1
+        text: Prioritize customer-facing revenue systems
+        impact:
+          compliance: 70
+          stakeholder: 85
+          business: 90
+          time: 75
+        feedback: Maximizes business continuity but may rush security
+        requiredResources: []
+      - id: o2
+        text: Restore systems based on security priorities
+        impact:
+          compliance: 90
+          stakeholder: 65
+          business: 60
+          time: 80
+        feedback: Ensures secure recovery but extends outage
+        requiredResources: []
+      - id: o3
+        text: Parallel restoration with temporary alternatives
+        impact:
+          compliance: 75
+          stakeholder: 80
+          business: 85
+          time: 65
+        feedback: Balanced approach but requires more resources
+        requiredResources: []
+
+regulatoryRequirements:
+  - Data breach notification within 72 hours (GDPR)
+  - State-specific breach notification laws
+  - Industry-specific regulations (HIPAA, PCI-DSS, etc.)
+  - Incident reporting to relevant authorities
+  - Evidence preservation requirements
+  - Documentation of response actions
+  - Post-incident compliance assessment
+
+prerequisites:
+  - Incident Response Plan
+  - Business Continuity Plan
+  - Crisis Communication Plan
+  - Cyber Insurance Policy
+  - Data Classification Inventory
+  - Asset Management System
+  - Backup and Recovery Procedures
+  - Emergency Contact List
+
+supportingDocuments:
+  - id: ir-plan
+    title: Incident Response Plan
+    url: https://example.com/ir-plan
+    type: pdf
+  - id: bcp
+    title: Business Continuity Plan
+    url: https://example.com/bcp
+    type: pdf
+  - id: crisis-comm
+    title: Crisis Communication Plan
+    url: https://example.com/crisis-comm
+    type: pdf
+  - id: recovery-proc
+    title: Recovery Procedures
+    url: https://example.com/recovery
+    type: pdf
