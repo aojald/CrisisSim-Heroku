@@ -26,9 +26,12 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(join(__dirname, '../dist')));
   
   // Handle React Router routes - send all non-API requests to index.html
-  app.get('*', (req, res) => {
+  app.get('*', (req, res, next) => {
     if (req.path.startsWith('/socket.io')) {
-      return; // Let socket.io handle its own routes
+      return next(); // Let socket.io handle its own routes
+    }
+    if (req.path.startsWith('/health')) {
+      return next(); // Let health check handle its own route
     }
     res.sendFile(join(__dirname, '../dist/index.html'));
   });

@@ -36,7 +36,7 @@ export default defineConfig(({ command, mode }) => {
     },
     build: {
       outDir: 'dist',
-      sourcemap: false,
+      sourcemap: mode === 'production' ? false : true,
       minify: mode === 'production' ? 'terser' : false,
       terserOptions: {
         compress: {
@@ -48,6 +48,7 @@ export default defineConfig(({ command, mode }) => {
         },
       },
       rollupOptions: {
+        external: [],
         output: {
           manualChunks: {
             vendor: ['react', 'react-dom'],
