@@ -1,120 +1,182 @@
 # Executive Cyber Crisis Simulator
 
-## Deployment
+A comprehensive crisis management simulation platform designed for executive training in cybersecurity incident response. This interactive tool helps C-level executives and senior management develop critical decision-making skills during cyber crisis scenarios.
 
-### Heroku Deployment
+## 🎯 Purpose
 
-1. **Prerequisites:**
-   - Heroku CLI installed
-   - Git repository initialized
-   - Heroku account
+The Executive Cyber Crisis Simulator provides realistic, high-pressure training scenarios where executives can:
 
-2. **Deploy to Heroku:**
-   ```bash
-   # Login to Heroku
-   heroku login
-   
-   # Create Heroku app
-   heroku create your-app-name
-   
-   # Set environment variables
-   heroku config:set NODE_ENV=production
-   
-   # Deploy
-   git add .
-   git commit -m "Deploy to Heroku"
-   git push heroku main
-   ```
+- **Practice Crisis Decision-Making**: Make critical decisions under time pressure in realistic cyber incident scenarios
+- **Understand Role-Specific Responsibilities**: Each C-level role (CEO, CFO, COO, CIO, CISO, HR Director, CLO, CCO) receives tailored context and challenges
+- **Learn Cross-Functional Coordination**: Experience how different executive roles must collaborate during a crisis
+- **Assess Response Readiness**: Identify gaps in crisis preparedness and resource availability
+- **Build Confidence**: Gain experience handling various cyber threats in a safe, simulated environment
 
-3. **One-click Deploy:**
-   [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+## 🚀 Live Demo
 
-### Environment Variables
+**Try the live demo at: [https://crisis.redteam.fr](https://crisis.redteam.fr)**
 
-Set these environment variables in Heroku:
-- `NODE_ENV=production`
-- `PORT` (automatically set by Heroku)
+### Demo Features
+- **Embedded Scenario Library**: Pre-built scenarios covering ransomware, data breaches, DDoS attacks, insider threats, and financial fraud
+- **Multi-language Support**: Scenarios available in English and French
+- **Industry-Specific Content**: Scenarios tailored for different industries (Healthcare, Technology, Finance, etc.)
+- **Company Size Variations**: Content adapted for small, medium, and large organizations
 
-## Scenario YAML Structure
-
-Scenarios are defined in YAML files with the following structure:
-
-```yaml
-# Title as comment
-type: ScenarioType            # One of: Ransomware, DataBreach, DDoS, InsiderThreat, FinancialFraud
-id: unique-identifier         # Unique scenario identifier
-title: Scenario Title         # Display title
-description: Description      # Detailed scenario description
-industry:                     # List of applicable industries
-  - Technology
-  - Healthcare
-  - Finance
-companySize:                  # List of applicable company sizes
-  - Small
-  - Medium
-  - Large
-severity: SeverityLevel      # One of: Low, Medium, High, Critical
-
-timeline:                    # Array of decision points
-  - id: decision-id         # Unique decision identifier
-    text: Decision text     # The situation/question presented to the user
-    timeLimit: 300          # Time limit in seconds
-    roleContext:            # Context specific to each role
-      CEO: Context for CEO
-      CFO: Context for CFO
-      # ... other roles
-    options:                # Array of possible choices
-      - id: option-id       # Unique option identifier
-        text: Option text   # The choice text
-        impact:             # Impact scores (0-100)
-          compliance: 90
-          stakeholder: 85
-          business: 75
-          time: 80
-        feedback: Feedback text  # Feedback shown after selection
-        requiredResources:   # Resources needed for this option
-          - id: resource-id
-            name: Resource Name
-            type: procedure  # One of: procedure, contact, documentation, tool, clearance
-            description: Resource description
-            required: true   # Whether this resource is mandatory
-
-regulatoryRequirements:     # List of compliance requirements
-  - Requirement 1
-  - Requirement 2
-
-prerequisites:              # List of required preparations
-  - Prerequisite 1
-  - Prerequisite 2
-
-supportingDocuments:        # Additional reference materials
-  - id: doc-id
-    title: Document Title
-    url: https://example.com/doc
-    type: pdf
+### Demo Credentials
+```
+Username: demo
+Password: demo2025
 ```
 
-### Validation Rules
+## ⚠️ Important Security & Data Notes
 
-1. All required fields must be present:
-   - id, type, title, description
-   - industry, companySize, severity
-   - timeline, regulatoryRequirements, prerequisites
+### No Data Persistence
+- **No Database**: This application does not use a database - all data is stored in memory only
+- **Session-Based**: Simulations exist only during the active session
+- **Custom Scenarios**: If you create custom scenarios, **always export the YAML file** before closing the browser
+- **Community Sharing**: Consider sharing your custom scenarios with the community via GitHub issues or pull requests
 
-2. Timeline validation:
-   - Each decision must have an id, text, and timeLimit
-   - Each decision must have at least one option
-   - Each option must have an id, text, and impact scores
-   - Impact scores must be between 0 and 100
+### Security Considerations
+- **Demo Authentication**: Uses hardcoded credentials for demonstration purposes only
+- **No Sensitive Data**: Do not store sensitive, confidential, or proprietary information in YAML scenario files
+- **Local Use Recommended**: For sensitive training, deploy locally rather than using the public demo
 
-3. Resource validation:
-   - Resources must have id, name, type, and description
-   - Type must be one of: procedure, contact, documentation, tool, clearance
+## 🛠️ Local Development Setup
 
-### Best Practices
+### Prerequisites
+- Node.js 18.x or higher
+- npm 9.x or higher
 
-1. Use descriptive IDs that reflect the content
-2. Keep decision text clear and concise
-3. Provide detailed role-specific context
-4. Balance impact scores across options
-5. Include meaningful feedback for each option
+### Quick Start
+
+#### Option 1: Automated Scripts (Recommended)
+
+**Linux/macOS:**
+```bash
+chmod +x start-dev.sh
+./start-dev.sh
+```
+
+**Windows:**
+```cmd
+start-dev.bat
+```
+
+#### Option 2: Manual Setup
+
+**Terminal 1 - Backend Server:**
+```bash
+npm install
+npm run dev:server
+```
+
+**Terminal 2 - Frontend Server:**
+```bash
+npm run dev:vite
+```
+
+### Development URLs
+- **Frontend Application**: http://localhost:5173
+- **Backend Socket.IO Server**: http://localhost:3001
+- **Health Check**: http://localhost:3001/health
+
+### Available Scripts
+- `npm run dev` - Start both servers concurrently
+- `npm run dev:vite` - Start Vite development server only (port 5173)
+- `npm run dev:server` - Start Socket.IO server only (port 3001)
+- `npm run build` - Build for production with type checking
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
+
+## 🎮 How to Use
+
+### Single Player Mode
+1. Log in with demo credentials
+2. Select "Create New" simulation
+3. Choose your executive role
+4. Select organization profile (industry, company size)
+5. Pick a scenario from the library
+6. Start the simulation
+
+### Multiplayer Mode
+1. Host creates a simulation and shares the join code
+2. Other players join using the code
+3. Each player selects their executive role
+4. Host starts the simulation when all players are ready
+5. Players make decisions simultaneously and see each other's choices
+
+### Creating Custom Scenarios
+1. Go to "Edit Scenario" from the main menu
+2. Use the scenario editor to create new content
+3. **Important**: Export your scenario as YAML before leaving
+4. Import the YAML file to restore your scenario later
+
+## 📋 Known Issues & TODO
+
+### UI/UX Improvements Needed
+- [ ] **Resource Availability UI**: The yes/no interface for resource availability is unclear and needs better visual design
+- [ ] **Mobile Responsiveness**: Application is not optimized for mobile phones and tablets
+- [ ] **Chat Notifications**: Multiplayer mode lacks proper notifications for new chat messages
+
+### Missing Features
+- [ ] **PDF Export**: No ability to export simulation results and analysis as PDF reports
+- [ ] **PowerPoint Export**: Missing PPTX export functionality for executive presentations
+- [ ] **Advanced Analytics**: Limited post-simulation analysis and reporting capabilities
+- [ ] **Scenario Templates**: Need more scenario creation templates and wizards
+- [ ] **User Management**: No proper user accounts or session management
+
+### Technical Improvements
+- [ ] **Data Persistence**: Add optional database support for scenario storage
+- [ ] **Real-time Sync**: Improve real-time synchronization in multiplayer mode
+- [ ] **Performance**: Optimize for larger group simulations (10+ participants)
+- [ ] **Accessibility**: Improve screen reader support and keyboard navigation
+
+## 🏗️ Architecture
+
+### Technology Stack
+- **Frontend**: React 18 + TypeScript + Tailwind CSS
+- **Backend**: Node.js + Express + Socket.IO
+- **Build Tool**: Vite
+- **Deployment**: Heroku-ready with Procfile
+
+### Key Components
+- **Scenario Engine**: YAML-based scenario definition and execution
+- **Real-time Communication**: Socket.IO for multiplayer coordination
+- **Decision Analysis**: Impact scoring and feedback system
+- **Resource Management**: Crisis resource availability tracking
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+### Scenario Contributions
+- Create new crisis scenarios using the built-in editor
+- Export as YAML and submit via GitHub issues
+- Focus on realistic, industry-specific situations
+
+### Code Contributions
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+### Bug Reports
+- Use GitHub issues to report bugs
+- Include steps to reproduce
+- Specify browser and operating system
+
+## 📄 License
+
+This project is open source. Please check the LICENSE file for details.
+
+## 🆘 Support
+
+- **Issues**: Report bugs and request features via GitHub Issues
+- **Documentation**: Check the `/docs` folder for detailed guides
+- **Community**: Join discussions in GitHub Discussions
+
+---
+
+**⚠️ Disclaimer**: This is a training simulation tool. Real crisis response should always follow your organization's established procedures and involve appropriate authorities.
