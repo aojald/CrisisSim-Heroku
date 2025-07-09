@@ -1,7 +1,7 @@
 # Critical Infrastructure Ransomware Attack
 type: Ransomware
 id: ransomware-1
-title: Critical Infrastructure Ransomware Attack
+title: [small][generic] - Critical Infrastructure Ransomware Attack
 description: A sophisticated ransomware attack has encrypted critical business systems and customer data. The attackers are demanding $200M in cryptocurrency.
 industry: 
   - Technology
