@@ -3,7 +3,7 @@ import { Server } from 'socket.io';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import express from 'express';
-import { readFileSync, existsSync } from 'fs';
+import { existsSync } from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,22 +22,13 @@ console.log('🚀 Starting Socket.IO server...');
 // Create Express app
 const app = express();
 
-// Add security headers for production
-app.use((req, res, next) => {
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  next();
-});
-
-// Health check endpoint - MUST be before static files
+// Health check endpoint
 app.get('/health', (req, res) => {
   debug('Health check requested');
   res.status(200).json({ 
     status: 'OK', 
     timestamp: new Date().toISOString(),
-    env: process.env.NODE_ENV,
-    port: PORT
+    env: process.env.NODE_ENV || 'development'
   });
 });
 
@@ -47,12 +38,26 @@ if (process.env.NODE_ENV === 'production') {
   debug(`Serving static files from: ${distPath}`);
   debug(`Dist directory exists: ${existsSync(distPath)}`);
   
-  app.use(express.static(distPath, {
-    maxAge: '1d',
-    etag: false
-  }));
-} else {
-  debug('Development mode - not serving static files');
+  // Serve static files
+  app.use(express.static(distPath));
+  
+  // Handle React Router routes - send all non-API requests to index.html
+  app.get('*', (req, res) => {
+    // Skip socket.io paths
+    if (req.path.startsWith('/socket.io')) {
+      return res.status(404).send('Not found');
+    }
+    
+    debug(`Serving React app for: ${req.path}`);
+    const indexPath = join(__dirname, '../dist/index.html');
+    
+    if (existsSync(indexPath)) {
+      res.sendFile(indexPath);
+    } else {
+      debug('index.html not found');
+      res.status(404).send('Application not found');
+    }
+  });
 }
 
 // Create HTTP server with Express app
@@ -75,29 +80,6 @@ const io = new Server(server, {
   allowEIO3: true,
   path: '/socket.io'
 });
-
-// Handle React Router routes - MUST be after Socket.IO setup but before server.listen
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
-    // Skip socket.io paths
-    if (req.path.startsWith('/socket.io')) {
-      return res.status(404).send('Not found');
-    }
-    
-    debug(`Fallback route for: ${req.path}`);
-    
-    const indexPath = join(__dirname, '../dist/index.html');
-    debug(`Serving index.html from: ${indexPath}`);
-    debug(`Index.html exists: ${existsSync(indexPath)}`);
-    
-    if (existsSync(indexPath)) {
-      res.sendFile(indexPath);
-    } else {
-      debug('index.html not found, sending 404');
-      res.status(404).send('Application not found');
-    }
-  });
-}
 
 // Store active simulations
 const simulations = new Map();
