@@ -40,31 +40,6 @@ if (process.env.NODE_ENV === 'production') {
     maxAge: '1d',
     etag: false
   }));
-  
-  // Handle React Router routes - send all non-API requests to index.html
-  app.get('*', (req, res, next) => {
-    debug(`Request for: ${req.path}`);
-    
-    if (req.path.startsWith('/socket.io')) {
-      debug('Socket.IO request, passing to next handler');
-      return next(); // Let socket.io handle its own routes
-    }
-    if (req.path.startsWith('/health')) {
-      debug('Health check request, passing to next handler');
-      return next(); // Let health check handle its own route
-    }
-    
-    const indexPath = join(__dirname, '../dist/index.html');
-    debug(`Serving index.html from: ${indexPath}`);
-    debug(`Index.html exists: ${existsSync(indexPath)}`);
-    
-    if (existsSync(indexPath)) {
-      res.sendFile(indexPath);
-    } else {
-      debug('index.html not found, sending 404');
-      res.status(404).send('Application not found');
-    }
-  });
 } else {
   debug('Development mode - not serving static files');
 }
@@ -79,6 +54,24 @@ app.get('/health', (req, res) => {
     port: PORT
   });
 });
+
+// Handle React Router routes - MUST be after all other routes
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    debug(`Fallback route for: ${req.path}`);
+    
+    const indexPath = join(__dirname, '../dist/index.html');
+    debug(`Serving index.html from: ${indexPath}`);
+    debug(`Index.html exists: ${existsSync(indexPath)}`);
+    
+    if (existsSync(indexPath)) {
+      res.sendFile(indexPath);
+    } else {
+      debug('index.html not found, sending 404');
+      res.status(404).send('Application not found');
+    }
+  });
+}
 
 // Create HTTP server with Express app
 const server = createServer(app);
