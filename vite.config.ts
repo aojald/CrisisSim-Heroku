@@ -37,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
     build: {
       outDir: 'dist',
       sourcemap: false,
-      minify: 'terser',
+      minify: process.env.NODE_ENV === 'production' ? 'terser' : false,
       rollupOptions: {
         output: {
           manualChunks: {
