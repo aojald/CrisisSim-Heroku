@@ -12,34 +12,43 @@ export default function LoginForm({ onLogin }: Props) {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Stored credentials (in production, this would be handled server-side)
-  const validCredentials = [
-    { username: 'demo', password: 'demo2025' }
-  ];
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
 
-    // Simulate authentication delay
-    await new Promise(resolve => setTimeout(resolve, 800));
+    try {
+      // Make API call to backend authentication endpoint
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    const isValid = validCredentials.some(
-      cred => cred.username === username && cred.password === password
-    );
+      const data = await response.json();
 
-    if (isValid) {
-      // Store authentication in localStorage
-      localStorage.setItem('crisis_sim_auth', 'authenticated');
-      localStorage.setItem('crisis_sim_user', username);
-      onLogin(true);
-      // Small delay to ensure state is updated before redirect
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
-    } else {
-      setError('Invalid username or password');
+      if (data.success) {
+        // Store authentication in localStorage
+        localStorage.setItem('crisis_sim_auth', 'authenticated');
+        localStorage.setItem('crisis_sim_user', username);
+        if (data.user) {
+          localStorage.setItem('crisis_sim_user_info', JSON.stringify(data.user));
+        }
+        
+        onLogin(true);
+        // Small delay to ensure state is updated before redirect
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+      } else {
+        setError(data.error || 'Login failed');
+        onLogin(false);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('Unable to connect to server. Please try again.');
       onLogin(false);
     }
 

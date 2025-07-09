@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useSimulation } from '../../context/SimulationContext';
 import ScenarioEditor from './ScenarioEditor';
 import ScenarioUpload from './ScenarioUpload';
+import AdminUserManager from './AdminUserManager';
 import { Scenario } from '../../types';
 import { Settings, Plus, List, Upload, FileText, Users, ArrowLeft } from 'lucide-react';
 import { loadScenarios, saveScenario, clearCache } from '../../utils/scenarioManager';
 
-type View = 'list' | 'editor' | 'upload' | 'new';
+type View = 'list' | 'editor' | 'upload' | 'new' | 'users';
 
 interface AdminPanelProps {
   onBack?: () => void;
@@ -17,6 +18,16 @@ export default function AdminPanel({ onBack }: AdminPanelProps) {
   const [view, setView] = useState<View>('list');
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
   const [loading, setLoading] = useState(true);
+  
+  // Get current user info from localStorage
+  const currentUser = React.useMemo(() => {
+    try {
+      const userInfo = localStorage.getItem('crisis_sim_user_info');
+      return userInfo ? JSON.parse(userInfo) : { username: 'unknown', role: 'user' };
+    } catch {
+      return { username: 'unknown', role: 'user' };
+    }
+  }, []);
 
   useEffect(() => {
     async function loadAllScenarios() {
@@ -103,6 +114,13 @@ export default function AdminPanel({ onBack }: AdminPanelProps) {
             <Plus className="w-4 h-4 mr-2" />
             Create New
           </button>
+          <button
+            onClick={() => setView('users')}
+            className={`btn ${view === 'users' ? 'btn-primary' : 'btn-secondary'}`}
+          >
+            <Users className="w-4 h-4 mr-2" />
+            Users
+          </button>
         </div>
         
         {onBack && (
@@ -172,7 +190,9 @@ export default function AdminPanel({ onBack }: AdminPanelProps) {
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold text-gray-900">Scenario Editor</h2>
+        <h2 className="text-3xl font-bold text-gray-900">
+          {view === 'users' ? 'User Management' : 'Scenario Editor'}
+        </h2>
       </div>
 
       {renderNavigation()}
@@ -192,6 +212,10 @@ export default function AdminPanel({ onBack }: AdminPanelProps) {
             setView('list');
           }}
         />
+      )}
+      
+      {view === 'users' && (
+        <AdminUserManager currentUser={currentUser} />
       )}
     </div>
   );

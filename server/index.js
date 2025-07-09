@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import express from 'express';
 import { existsSync } from 'fs';
+import { userService } from './database.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,14 +23,293 @@ console.log('🚀 Starting Socket.IO server...');
 // Create Express app
 const app = express();
 
+// Add JSON parsing middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Add security headers
+app.use((req, res, next) => {
+  // CORS headers
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+
+  // Security headers
+  res.header('X-Content-Type-Options', 'nosniff');
+  res.header('X-Frame-Options', 'DENY');
+  res.header('X-XSS-Protection', '1; mode=block');
+  res.header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+    return;
+  }
+
+  next();
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   debug('Health check requested');
-  res.status(200).json({ 
-    status: 'OK', 
+  res.status(200).json({
+    status: 'OK',
     timestamp: new Date().toISOString(),
     env: process.env.NODE_ENV || 'development'
   });
+});
+
+// Store failed login attempts for basic rate limiting
+const failedAttempts = new Map();
+
+// Simple rate limiting function
+const checkRateLimit = (ip) => {
+  const now = Date.now();
+  const attempts = failedAttempts.get(ip) || { count: 0, lastAttempt: now };
+
+  // Reset counter if 15 minutes have passed
+  if (now - attempts.lastAttempt > 15 * 60 * 1000) {
+    attempts.count = 0;
+  }
+
+  // Check if rate limit exceeded
+  if (attempts.count >= 5) {
+    return false;
+  }
+
+  return true;
+};
+
+// Record failed attempt
+const recordFailedAttempt = (ip) => {
+  const now = Date.now();
+  const attempts = failedAttempts.get(ip) || { count: 0, lastAttempt: now };
+  attempts.count += 1;
+  attempts.lastAttempt = now;
+  failedAttempts.set(ip, attempts);
+};
+
+// Authentication endpoint
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const clientIp = req.ip || req.connection.remoteAddress;
+
+    debug(`Login attempt from ${clientIp} for user: ${username}`);
+
+    // Check rate limiting
+    if (!checkRateLimit(clientIp)) {
+      debug(`Rate limit exceeded for ${clientIp}`);
+      return res.status(429).json({
+        success: false,
+        error: 'Too many login attempts. Please try again later.'
+      });
+    }
+
+    // Validate required fields
+    if (!username || !password) {
+      debug('Missing username or password');
+      recordFailedAttempt(clientIp);
+      return res.status(400).json({
+        success: false,
+        error: 'Username and password are required'
+      });
+    }
+
+    // Simulate authentication delay (prevent timing attacks)
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    // Validate credentials using database
+    const user = await userService.validateCredentials(username, password);
+
+    if (!user) {
+      debug(`Invalid credentials for user: ${username}`);
+      recordFailedAttempt(clientIp);
+      return res.status(401).json({
+        success: false,
+        error: 'Invalid username or password'
+      });
+    }
+
+    // User info is already returned from validateCredentials
+    const userInfo = user;
+
+    debug(`Successful login for user: ${username}`);
+
+    // Clear failed attempts on successful login
+    failedAttempts.delete(clientIp);
+
+    res.json({
+      success: true,
+      user: userInfo,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    debug('Login error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error'
+    });
+  }
+});
+
+// Authentication middleware
+const authenticateToken = async (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    debug('No token provided');
+    return res.status(401).json({ error: 'Access token required' });
+  }
+
+  try {
+    // In a real app, you'd verify a JWT token here
+    // For now, we'll use a simple session-based approach
+    const username = req.headers['x-username'];
+
+    if (!username) {
+      return res.status(401).json({ error: 'Username required' });
+    }
+
+    const user = await userService.getUserByUsername(username);
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid user' });
+    }
+
+    req.user = {
+      id: user.id,
+      username: user.username,
+      role: user.role
+    };
+
+    next();
+  } catch (error) {
+    debug('Authentication error:', error);
+    res.status(403).json({ error: 'Invalid token' });
+  }
+};
+
+// Admin middleware
+const requireAdmin = (req, res, next) => {
+  if (!req.user || req.user.role !== 'admin') {
+    debug(`Non-admin user ${req.user?.username} attempted admin action`);
+    return res.status(403).json({ error: 'Admin access required' });
+  }
+  next();
+};
+
+// Admin API endpoints
+// Get all users
+app.get('/api/admin/users', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    debug(`Admin ${req.user.username} requested all users`);
+    const users = await userService.getAllUsers();
+    res.json({ success: true, users });
+  } catch (error) {
+    debug('Error fetching users:', error);
+    res.status(500).json({ success: false, error: 'Failed to fetch users' });
+  }
+});
+
+// Create new user
+app.post('/api/admin/users', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const { username, password, role } = req.body;
+
+    debug(`Admin ${req.user.username} creating user: ${username}`);
+
+    if (!username || !password) {
+      return res.status(400).json({
+        success: false,
+        error: 'Username and password are required'
+      });
+    }
+
+    const user = await userService.createUser(username, password, role || 'user');
+    debug(`User created successfully: ${username}`);
+
+    res.json({
+      success: true,
+      user: {
+        id: user.id,
+        username: user.username,
+        role: user.role,
+        created_at: user.created_at
+      }
+    });
+  } catch (error) {
+    debug('Error creating user:', error);
+    if (error.message === 'User already exists') {
+      res.status(409).json({ success: false, error: 'User already exists' });
+    } else {
+      res.status(500).json({ success: false, error: 'Failed to create user' });
+    }
+  }
+});
+
+// Update user
+app.put('/api/admin/users/:id', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { username, password, role } = req.body;
+
+    debug(`Admin ${req.user.username} updating user: ${id}`);
+
+    const updates = {};
+    if (username) updates.username = username;
+    if (password) updates.password = password;
+    if (role) updates.role = role;
+
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({
+        success: false,
+        error: 'No updates provided'
+      });
+    }
+
+    const user = await userService.updateUser(parseInt(id), updates);
+    debug(`User updated successfully: ${id}`);
+
+    res.json({ success: true, user });
+  } catch (error) {
+    debug('Error updating user:', error);
+    if (error.message === 'User not found') {
+      res.status(404).json({ success: false, error: 'User not found' });
+    } else {
+      res.status(500).json({ success: false, error: 'Failed to update user' });
+    }
+  }
+});
+
+// Delete user
+app.delete('/api/admin/users/:id', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    debug(`Admin ${req.user.username} deleting user: ${id}`);
+
+    // Prevent admin from deleting themselves
+    if (parseInt(id) === req.user.id) {
+      return res.status(400).json({
+        success: false,
+        error: 'Cannot delete your own account'
+      });
+    }
+
+    await userService.deleteUser(parseInt(id));
+    debug(`User deleted successfully: ${id}`);
+
+    res.json({ success: true, message: 'User deleted successfully' });
+  } catch (error) {
+    debug('Error deleting user:', error);
+    if (error.message === 'User not found') {
+      res.status(404).json({ success: false, error: 'User not found' });
+    } else {
+      res.status(500).json({ success: false, error: 'Failed to delete user' });
+    }
+  }
 });
 
 // Serve static files from the dist directory in production
@@ -37,20 +317,20 @@ if (process.env.NODE_ENV === 'production') {
   const distPath = join(__dirname, '../dist');
   debug(`Serving static files from: ${distPath}`);
   debug(`Dist directory exists: ${existsSync(distPath)}`);
-  
+
   // Serve static files
   app.use(express.static(distPath));
-  
+
   // Handle React Router routes - send all non-API requests to index.html
   app.get('*', (req, res) => {
     // Skip socket.io paths
     if (req.path.startsWith('/socket.io')) {
       return res.status(404).send('Not found');
     }
-    
+
     debug(`Serving React app for: ${req.path}`);
     const indexPath = join(__dirname, '../dist/index.html');
-    
+
     if (existsSync(indexPath)) {
       res.sendFile(indexPath);
     } else {
@@ -158,45 +438,45 @@ function checkAllPlayersResponded(simulation) {
 // Advance simulation to next step
 function advanceSimulation(simulation) {
   if (!simulation) return;
-  debug('Advancing simulation:', { 
-    code: simulation.code, 
+  debug('Advancing simulation:', {
+    code: simulation.code,
     mode: simulation.mode,
     playerCount: simulation.players.size
   });
-  
+
   const isSinglePlayer = simulation.mode === 'single';
-  
+
   simulation.players.forEach(player => {
     player.currentStep = (player.currentStep || 0) + 1;
     debug(`Advancing player ${player.id} to step ${player.currentStep}`);
     const currentStep = player.currentStep;
     // Delay both emissions together
     setTimeout(() => {
-      io.to(simulation.code).emit('advance_simulation', { 
-              playerId: player.id,
-              mode: isSinglePlayer ? 'single' : 'multi',
-              timestamp: Date.now(),
-              step: currentStep
-            });
-            debug(`Emitted advance_simulation to room ${simulation.code} for player ${player.id}`);
-      
-            // Always emit updated state with all player data
-            io.to(simulation.code).emit('simulation_state', {
-              players: Array.from(simulation.players.values()),
-              scenario: simulation.scenario,
-              status: simulation.status,
-              mode: simulation.mode,
-              startedAt: simulation.startedAt,
-              roles: simulation.roles,
-              hostId: simulation.hostId,
-              currentStep
-            });
-            debug(`Emitted simulation_state to room ${simulation.code} for player ${player.id}`);
-          }, 100); // 100ms delay to avoid race condition
-        });
-  
+      io.to(simulation.code).emit('advance_simulation', {
+        playerId: player.id,
+        mode: isSinglePlayer ? 'single' : 'multi',
+        timestamp: Date.now(),
+        step: currentStep
+      });
+      debug(`Emitted advance_simulation to room ${simulation.code} for player ${player.id}`);
+
+      // Always emit updated state with all player data
+      io.to(simulation.code).emit('simulation_state', {
+        players: Array.from(simulation.players.values()),
+        scenario: simulation.scenario,
+        status: simulation.status,
+        mode: simulation.mode,
+        startedAt: simulation.startedAt,
+        roles: simulation.roles,
+        hostId: simulation.hostId,
+        currentStep
+      });
+      debug(`Emitted simulation_state to room ${simulation.code} for player ${player.id}`);
+    }, 100); // 100ms delay to avoid race condition
+  });
+
   // Check if simulation is complete
-  const isComplete = Array.from(simulation.players.values()).every(player => 
+  const isComplete = Array.from(simulation.players.values()).every(player =>
     (player.currentStep ?? 0) >= simulation.scenario.timeline.length
   );
 
@@ -213,11 +493,11 @@ function advanceSimulation(simulation) {
 // Handle socket connections
 io.on('connection', (socket) => {
   debug(`New client connected: ${socket.id}`);
-  
+
   let simulationCode = null;
   let playerId = null;
 
-// New peek_simulation handler
+  // New peek_simulation handler
   socket.on('peek_simulation', (data, callback) => {
     try {
       debug('Received peek_simulation request:', data);
@@ -247,12 +527,12 @@ io.on('connection', (socket) => {
       callback?.({ error: 'Failed to peek simulation state' });
     }
   });
-  
+
   // Join simulation handler
   socket.on('join_simulation', async (data, callback) => {
     try {
       debug('Received join_simulation request:', data);
-      
+
       const { code, player, scenario, isHost } = data;
       simulationCode = code;
       playerId = player.id;
@@ -283,7 +563,7 @@ io.on('connection', (socket) => {
 
       const simulation = simulations.get(code);
       debug(`Current simulation state:`, simulation);
-      
+
       // Ensure simulation.code is set (for older simulations if any)
       if (!simulation.code) {
         simulation.code = code;
@@ -352,10 +632,10 @@ io.on('connection', (socket) => {
   socket.on('decision', (data, callback) => {
     try {
       debug('Received decision:', data);
-      
+
       const { code, playerId, decision } = data;
       const simulation = simulations.get(code);
-      
+
       if (!simulation) {
         callback?.({ error: 'Simulation not found' });
         return;
@@ -393,7 +673,7 @@ io.on('connection', (socket) => {
         debug('All players have responded, advancing simulation');
         advanceSimulation(simulation);
       }
-      
+
       // Send success response
       callback?.({ success: true });
     } catch (err) {
@@ -406,10 +686,10 @@ io.on('connection', (socket) => {
   socket.on('start_simulation', (data, callback) => {
     try {
       debug('Received start_simulation request:', data);
-      
+
       const { code } = data;
       const simulation = simulations.get(code);
-      
+
       if (!simulation) {
         debug(`Simulation ${code} not found for start request`);
         callback?.({ error: 'Simulation not found' });
@@ -492,10 +772,10 @@ io.on('connection', (socket) => {
   socket.on('chat_message', (data, callback) => {
     try {
       debug('Received chat message:', data);
-      
+
       const { code, message } = data;
       const simulation = simulations.get(code);
-      
+
       if (!simulation) {
         callback?.({ error: 'Simulation not found' });
         return;
@@ -534,7 +814,7 @@ io.on('connection', (socket) => {
   // Handle disconnection
   socket.on('disconnect', () => {
     debug(`Client disconnected: ${socket.id}`);
-    
+
     if (simulationCode && playerId) {
       const simulation = simulations.get(simulationCode);
       if (simulation) {

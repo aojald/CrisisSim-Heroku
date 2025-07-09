@@ -28,6 +28,8 @@ Username: demo
 Password: demo2025
 ```
 
+**Note**: For production deployments, always use custom admin credentials via environment variables (see Configuration section below).
+
 ## ⚠️ Important Security & Data Notes
 
 ### No Data Persistence
@@ -89,6 +91,48 @@ npm run dev:vite
 - `npm run lint` - Run ESLint
 - `npm run test` - Run tests
 
+## ⚙️ Configuration
+
+### Admin Credentials Configuration
+
+The application supports configurable admin credentials via environment variables. This is especially important for production deployments.
+
+#### Environment Variables
+
+- **`ADMIN_USERNAME`** (optional): Admin username
+  - Default: `demo`
+  - Example: `ADMIN_USERNAME=admin`
+
+- **`ADMIN_PASSWORD`** (optional): Admin password  
+  - Default: `demo2025`
+  - Example: `ADMIN_PASSWORD=your_secure_password`
+  - **Important**: If set, the password will be updated on every server startup
+
+- **`JWT_SECRET`** (recommended for production): JWT token signing secret
+  - Default: `your-secret-key-change-in-production`
+  - Example: `JWT_SECRET=a-very-long-random-secret-key`
+
+#### Usage Examples
+
+**Development with custom credentials:**
+```bash
+ADMIN_USERNAME=admin ADMIN_PASSWORD=secure123 npm run dev
+```
+
+**Production deployment:**
+```bash
+ADMIN_USERNAME=admin ADMIN_PASSWORD=your_secure_password NODE_ENV=production npm start
+```
+
+**Heroku deployment:**
+```bash
+heroku config:set ADMIN_USERNAME=admin
+heroku config:set ADMIN_PASSWORD=your-secure-password  
+heroku config:set JWT_SECRET=your-jwt-secret
+```
+
+For complete configuration options, see [ENVIRONMENT_VARIABLES.md](./ENVIRONMENT_VARIABLES.md).
+
 ## 🚀 Deployment to Heroku
 
 ### Prerequisites
@@ -115,6 +159,9 @@ npm run dev:vite
 3. **Set environment variables**
    ```bash
    heroku config:set NODE_ENV=production
+   heroku config:set ADMIN_USERNAME=admin
+   heroku config:set ADMIN_PASSWORD=your-secure-password
+   heroku config:set JWT_SECRET=your-random-jwt-secret
    ```
 
 4. **Deploy the application**

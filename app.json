@@ -3,7 +3,13 @@
   "description": "A comprehensive crisis management simulation platform for executive training",
   "repository": "https://github.com/your-username/cyber-crisis-simulator",
   "logo": "https://via.placeholder.com/200x200/2563eb/ffffff?text=ECCS",
-  "keywords": ["crisis-management", "cybersecurity", "simulation", "training", "executive"],
+  "keywords": [
+    "crisis-management",
+    "cybersecurity",
+    "simulation",
+    "training",
+    "executive"
+  ],
   "stack": "heroku-22",
   "buildpacks": [
     {
@@ -16,12 +22,7 @@
       "size": "basic"
     }
   },
-  "addons": [
-    {
-      "plan": "heroku-redis:mini",
-      "as": "REDIS"
-    }
-  ],
+  "addons": [],
   "env": {
     "NODE_ENV": {
       "description": "Node environment",
@@ -30,6 +31,21 @@
     "NPM_CONFIG_PRODUCTION": {
       "description": "Skip dev dependencies during build",
       "value": "false"
+    },
+    "ADMIN_USERNAME": {
+      "description": "Admin username for the application",
+      "value": "admin",
+      "required": false
+    },
+    "ADMIN_PASSWORD": {
+      "description": "Secure password for the admin user (change this!)",
+      "generator": "secret",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT token signing",
+      "generator": "secret",
+      "required": true
     }
   },
   "scripts": {
