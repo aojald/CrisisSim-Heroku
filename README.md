@@ -232,7 +232,7 @@ If you encounter the error `TypeError: Missing parameter name at 1: https://git.
 ### UI/UX Improvements Needed
 - [ ] **Resource Availability UI**: The yes/no interface for resource availability is unclear and needs better visual design
 - [ ] **Mobile Responsiveness**: Application is not optimized for mobile phones and tablets
-- [ ] **Chat Notifications**: Multiplayer mode lacks proper notifications for new chat messages
+- [ ] **Chat Notifications**: Multiplayer mode lacks proper notifications for new chat messages **FIXED**
 
 ### Missing Features
 - [ ] **PDF Export**: No ability to export simulation results and analysis as PDF reports
