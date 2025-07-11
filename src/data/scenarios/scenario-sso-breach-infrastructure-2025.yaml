@@ -1,0 +1,445 @@
+id: scenario-sso-breach-infrastructure-2025
+type: Third-Party Risk
+title: SSO Slip-Up at ConnectCore Infrastructure
+description: >
+  ConnectCore Infrastructure, a leading digital infrastructure provider
+  operating fiber networks, data centers, and ISP services across Belgium,
+  Netherlands, and Luxembourg, serves 2.3 million residential customers and
+  8,500 enterprise clients. The company relies on SecureAuth (a fictitious SSO
+  provider) for unified access to network management systems, customer portals,
+  billing platforms, and critical infrastructure controls. On October 8, 2025,
+  at 4:15 AM, SecureAuth sends an emergency notification: their authentication
+  infrastructure was compromised, potentially exposing tokens for millions of
+  users including critical infrastructure operators. With 24/7 network
+  operations, customer services, and regulatory compliance at stake,
+  ConnectCore's leadership must navigate immediate containment while maintaining
+  essential digital services.
+industry:
+  - Telecommunications
+  - Technology
+  - Infrastructure
+companySize:
+  - Large
+  - Medium
+  - Small
+severity: Critical
+timeline:
+  - id: d1-breach-notification
+    text: >
+      It's 4:15 AM on October 8, 2025, when your Network Operations Center (NOC)
+      receives a critical alert from SecureAuth: "SECURITY BREACH - Critical
+      Infrastructure Impact." The notification reveals unauthorized access to
+      their authentication systems between October 3-7, compromising OAuth
+      tokens, SAML assertions, and potentially exposing access to network
+      management interfaces. Your fiber network serves hospitals, government
+      agencies, and financial institutions across the Benelux region. NOC
+      engineers are managing routine maintenance windows, customer service teams
+      are handling overnight tickets, and your data center operations continue
+      24/7. The CEO must decide immediate response as the implications for
+      critical infrastructure become clear.
+    roleContext:
+      CEO: You're weighing service continuity against potential catastrophic
+        infrastructure exposure.
+      CFO: You're calculating potential losses from service disruptions and regulatory
+        penalties.
+      COO: You're assessing operational impact across network operations and customer
+        services.
+      CIO: You're determining which critical systems and controls are at risk.
+      CISO: You're coordinating incident response while protecting critical
+        infrastructure.
+      HR Director: You're managing 24/7 workforce and security clearance implications.
+      CLO: You're reviewing breach notification requirements and infrastructure
+        liability.
+      CCO: You're preparing for customer and regulatory communications.
+    options:
+      - id: o1-infrastructure-lockdown
+        text: I order immediate SSO disconnection for all critical infrastructure
+          systems while maintaining emergency access.
+        impact:
+          compliance: 95
+          stakeholder: 70
+          business: 60
+          time: 90
+        feedback: Protects critical infrastructure but may disrupt operations.
+        requiredResources: []
+      - id: o2-tiered-response
+        text: I implement tiered response prioritizing critical infrastructure while
+          maintaining customer services.
+        impact:
+          compliance: 85
+          stakeholder: 80
+          business: 85
+          time: 85
+        feedback: Balanced approach protecting priorities while minimizing disruption.
+        requiredResources: []
+      - id: o3-monitor-and-assess
+        text: I enhance monitoring while waiting for more details from SecureAuth before
+          major changes.
+        impact:
+          compliance: 40
+          stakeholder: 50
+          business: 80
+          time: 30
+        feedback: Dangerous delay that could compromise critical infrastructure.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r1-infrastructure-playbook
+        name: Critical Infrastructure Security Playbook
+        type: procedure
+        description: Emergency procedures for infrastructure security incidents.
+      - id: r1-system-inventory
+        name: Critical System Inventory
+        type: documentation
+        description: Complete mapping of SSO-dependent infrastructure and customer systems.
+  - id: d2-scope-assessment
+    text: >
+      By 5:30 AM, your security team has identified the exposure scope: 1,847
+      employees and contractors across 23 critical systems, including fiber
+      network management, data center environmental controls, customer billing
+      systems, and emergency services routing. SecureAuth confirms that while
+      passwords weren't directly exposed, authentication tokens for
+      infrastructure control systems were compromised. Your threat intelligence
+      team discovers similar attacks targeting other telecom providers. The
+      morning shift change begins in 2 hours, and enterprise customers are
+      starting their business day with connectivity dependencies.
+    roleContext:
+      CEO: You're balancing infrastructure security with service reliability
+        commitments.
+      CFO: You're calculating exposure from potential service disruptions and SLA
+        violations.
+      COO: You're coordinating with NOC and data center teams for critical access
+        needs.
+      CIO: You're implementing emergency authentication for infrastructure systems.
+      CISO: You're analyzing threat patterns and coordinating with SecureAuth and
+        authorities.
+      HR Director: You're managing shift operations and contractor access disruptions.
+      CLO: You're preparing regulatory notifications and assessing infrastructure
+        liability.
+      CCO: You're managing enterprise customer communications and SLA obligations.
+    options:
+      - id: o1-emergency-protocols
+        text: I activate emergency access protocols with enhanced MFA for all critical
+          infrastructure systems.
+        impact:
+          compliance: 90
+          stakeholder: 80
+          business: 85
+          time: 85
+        feedback: Secures infrastructure while maintaining operational capability.
+        requiredResources: []
+      - id: o2-selective-isolation
+        text: I isolate only the most critical network control systems while maintaining
+          customer-facing services.
+        impact:
+          compliance: 85
+          stakeholder: 85
+          business: 80
+          time: 80
+        feedback: Balances security with customer service continuity.
+        requiredResources: []
+      - id: o3-business-continuity
+        text: I maintain normal operations with increased monitoring to avoid service
+          disruptions.
+        impact:
+          compliance: 30
+          stakeholder: 90
+          business: 95
+          time: 50
+        feedback: Maintains services but ignores serious infrastructure risks.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r2-emergency-access
+        name: Emergency Access System
+        type: tool
+        description: Backup authentication system independent of SecureAuth.
+      - id: r2-infrastructure-monitoring
+        name: Infrastructure Threat Monitoring
+        type: tool
+        description: Real-time monitoring of network and data center security events.
+  - id: d3-regulatory-escalation
+    text: >
+      At 7:00 AM, your phone rings with calls from multiple regulators: BIPT
+      (Belgian telecom regulator), ACM (Netherlands), and ILR (Luxembourg) have
+      all been alerted to the breach through intelligence sharing networks.
+      Under NIS2 directive, you have 24 hours to report, but telecom regulations
+      require immediate notification for infrastructure impacts. Your compliance
+      team discovers suspicious access to fiber routing tables from IP addresses
+      in three different countries yesterday, potentially indicating
+      nation-state reconnaissance of critical infrastructure. The CEO must
+      decide on regulatory disclosure while investigation continues.
+    roleContext:
+      CEO: You're managing multi-jurisdictional regulatory pressure with incomplete
+        information.
+      CFO: You're assessing financial impact of potential regulatory sanctions and
+        service credits.
+      COO: You're coordinating with regulators while maintaining service operations.
+      CIO: You're providing technical evidence for regulatory and law enforcement
+        reporting.
+      CISO: You're leading forensic analysis of infrastructure access patterns.
+      HR Director: You're managing security-cleared staff and coordinating with authorities.
+      CLO: You're navigating complex telecom and infrastructure regulatory
+        requirements.
+      CCO: You're preparing stakeholder communications under regulatory scrutiny.
+    options:
+      - id: o1-immediate-reporting
+        text: I immediately notify all telecom regulators and relevant authorities with
+          available information.
+        impact:
+          compliance: 95
+          stakeholder: 80
+          business: 70
+          time: 95
+        feedback: Demonstrates transparency and compliance with infrastructure
+          regulations.
+        requiredResources: []
+      - id: o2-coordinated-disclosure
+        text: I coordinate with lead regulator to provide comprehensive briefing within
+          required timeframes.
+        impact:
+          compliance: 85
+          stakeholder: 80
+          business: 80
+          time: 85
+        feedback: Structured approach that manages regulatory relationships effectively.
+        requiredResources: []
+      - id: o3-technical-focus
+        text: I provide technical details only, minimizing business impact discussion
+          with regulators.
+        impact:
+          compliance: 60
+          stakeholder: 70
+          business: 90
+          time: 60
+        feedback: May satisfy technical requirements but could miss regulatory
+          expectations.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r3-regulatory-contacts
+        name: Telecom Regulatory Contacts
+        type: contact
+        description: Direct emergency contacts for BIPT, ACM, ILR, and security agencies.
+      - id: r3-incident-templates
+        name: Infrastructure Incident Templates
+        type: documentation
+        description: Pre-approved templates for critical infrastructure breach reporting.
+  - id: d4-customer-impact
+    text: >
+      By 9:30 AM, the business impact becomes clear: three major enterprise
+      customers report connectivity issues affecting their operations, including
+      a hospital network experiencing intermittent outages and a financial
+      trading firm with degraded performance. Social media mentions spike as
+      residential customers report slow internet speeds. Your customer service
+      teams are overwhelmed with calls, and your NOC identifies 23 network
+      segments requiring manual intervention due to disabled automated
+      management. A technology journalist contacts your PR team about
+      "infrastructure vulnerabilities" at ConnectCore. The CEO must balance
+      transparency with operational recovery.
+    roleContext:
+      CEO: You're managing service quality issues while addressing security concerns.
+      CFO: You're calculating SLA penalty exposure and service credit obligations.
+      COO: You're coordinating manual operations to restore automated systems.
+      CIO: You're prioritizing system recovery while maintaining security protocols.
+      CISO: You're ensuring operational changes don't compromise security
+        investigation.
+      HR Director: You're managing increased workload and overtime for technical teams.
+      CLO: You're reviewing customer contracts and liability for service impacts.
+      CCO: You're managing customer communications and media inquiries.
+    options:
+      - id: o1-transparent-communication
+        text: I issue public statement acknowledging security measures while detailing
+          service restoration efforts.
+        impact:
+          compliance: 85
+          stakeholder: 85
+          business: 80
+          time: 85
+        feedback: Builds trust through transparency while managing expectations.
+        requiredResources: []
+      - id: o2-customer-first
+        text: I prioritize direct customer communications and service restoration before
+          public statements.
+        impact:
+          compliance: 80
+          stakeholder: 90
+          business: 85
+          time: 80
+        feedback: Maintains customer relationships but may fuel public speculation.
+        requiredResources: []
+      - id: o3-operational-focus
+        text: I focus resources on service restoration while providing minimal public
+          communication.
+        impact:
+          compliance: 70
+          stakeholder: 70
+          business: 85
+          time: 70
+        feedback: Prioritizes operations but may damage reputation and regulatory
+          relations.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r4-customer-portal
+        name: Customer Communication Portal
+        type: tool
+        description: Platform for mass customer notifications and service updates.
+      - id: r4-service-desk
+        name: Enhanced Service Desk
+        type: tool
+        description: Scaled customer support capabilities for incident management.
+  - id: d5-forensic-findings
+    text: >
+      Day 2, 11:00 AM: Forensic analysis reveals the full scope of the breach.
+      Compromised tokens were used to access network routing configurations,
+      data center environmental controls, and customer database systems. While
+      no customer data was exfiltrated, detailed network topology and
+      infrastructure layouts were accessed by threat actors. SecureAuth confirms
+      the breach affected 15,000 organizations globally, with evidence pointing
+      to state-sponsored APT groups targeting critical infrastructure. Three
+      government agencies request immediate briefings, and your insurance
+      company initiates a cyber-incident review. The CEO must decide on
+      disclosure scope and long-term security measures.
+    roleContext:
+      CEO: You're facing confirmation of critical infrastructure compromise with
+        national security implications.
+      CFO: You're managing increased costs from manual operations and potential
+        insurance claims.
+      COO: You're implementing enhanced security procedures across all infrastructure
+        operations.
+      CIO: You're architecting resilient systems with improved access controls.
+      CISO: You're coordinating with national security agencies and expanding threat
+        hunting.
+      HR Director: You're managing team stress and coordinating with security
+        clearance authorities.
+      CLO: You're managing government inquiries and potential regulatory enforcement.
+      CCO: You're addressing heightened customer security concerns and media
+        attention.
+    options:
+      - id: o1-full-transparency
+        text: I provide comprehensive disclosure to all stakeholders including detailed
+          infrastructure impact assessment.
+        impact:
+          compliance: 95
+          stakeholder: 80
+          business: 65
+          time: 95
+        feedback: Maximizes transparency and regulatory compliance but may reveal
+          sensitive infrastructure details.
+        requiredResources: []
+      - id: o2-classified-briefing
+        text: I provide detailed briefings to government agencies while giving summary
+          information to other stakeholders.
+        impact:
+          compliance: 90
+          stakeholder: 85
+          business: 80
+          time: 90
+        feedback: Balances national security concerns with stakeholder transparency.
+        requiredResources: []
+      - id: o3-limited-disclosure
+        text: I provide minimum required disclosures while protecting sensitive
+          infrastructure information.
+        impact:
+          compliance: 70
+          stakeholder: 70
+          business: 85
+          time: 70
+        feedback: Protects infrastructure security but may not satisfy regulatory
+          expectations.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r5-forensic-specialists
+        name: Infrastructure Forensic Team
+        type: contact
+        description: Specialized cybersecurity experts for critical infrastructure analysis.
+      - id: r5-government-liaison
+        name: Government Security Liaison
+        type: contact
+        description: Established contacts with national security and intelligence agencies.
+  - id: d6-infrastructure-hardening
+    text: >
+      Day 7, 3:00 PM: The immediate crisis stabilizes, but long-term challenges
+      emerge. Your board mandates a comprehensive infrastructure security
+      overhaul, including SSO diversification, zero-trust architecture, and
+      enhanced monitoring costing €8.7 million. Government agencies recommend
+      joining the national critical infrastructure protection program. Five
+      enterprise customers are reviewing their contracts, and regulators are
+      conducting formal security assessments. The CEO must balance massive
+      security investments with operational efficiency and competitive
+      positioning while rebuilding stakeholder confidence in critical
+      infrastructure resilience.
+    roleContext:
+      CEO: You're managing unprecedented security investment requirements with
+        competitive pressures.
+      CFO: You're restructuring budgets for security transformation while maintaining
+        profitability.
+      COO: You're implementing new security procedures across network and data center
+        operations.
+      CIO: You're designing next-generation infrastructure with security-first
+        architecture.
+      CISO: You're building advanced threat detection and response capabilities for
+        critical infrastructure.
+      HR Director: You're recruiting specialized security talent and managing team
+        development.
+      CLO: You're navigating regulatory compliance and government partnership
+        requirements.
+      CCO: You're rebuilding trust with enterprise customers and strengthening
+        competitive positioning.
+    options:
+      - id: o1-comprehensive-transformation
+        text: I approve full infrastructure security transformation including zero-trust
+          architecture and government partnership.
+        impact:
+          compliance: 95
+          stakeholder: 90
+          business: 70
+          time: 95
+        feedback: Positions company as security leader but requires significant
+          investment.
+        requiredResources: []
+      - id: o2-phased-modernization
+        text: I implement critical security upgrades in phases while maintaining
+          operational efficiency.
+        impact:
+          compliance: 85
+          stakeholder: 85
+          business: 85
+          time: 85
+        feedback: Practical approach balancing security advancement with business
+          sustainability.
+        requiredResources: []
+      - id: o3-compliance-minimum
+        text: I implement only mandatory security requirements to preserve competitive
+          cost structure.
+        impact:
+          compliance: 75
+          stakeholder: 70
+          business: 90
+          time: 75
+        feedback: Maintains competitiveness but may not meet stakeholder security
+          expectations.
+        requiredResources: []
+    timeLimit: 300
+    requiredResources:
+      - id: r6-security-architecture
+        name: Infrastructure Security Architecture Plan
+        type: procedure
+        description: Comprehensive blueprint for critical infrastructure security
+          transformation.
+      - id: r6-government-programs
+        name: National Infrastructure Protection Programs
+        type: contact
+        description: Government partnerships and resources for critical infrastructure
+          security.
+regulatoryRequirements:
+  - NIS2 Directive critical infrastructure incident reporting within 24 hours
+  - National telecom regulator immediate notification requirements (BIPT, ACM,
+    ILR)
+  - Critical infrastructure protection program compliance
+  - Customer data protection requirements under GDPR
+  - Government security clearance and briefing obligations
+prerequisites: []
+supportingDocuments: []
